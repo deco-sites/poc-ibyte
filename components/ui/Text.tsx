@@ -5,6 +5,7 @@ type Props = JSX.HTMLAttributes & {
   as?: "span" | "p" | ComponentType;
   tone?:
     | "default"
+    | "emphasis"
     | "default-inverse"
     | "subdued"
     | "subdued-inverse"

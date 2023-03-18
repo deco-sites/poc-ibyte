@@ -70,9 +70,9 @@ const Modal = ({
     >
       <section class="h-full bg-white flex flex-col">
         {customHeader ?? (
-          <header class="mt-6 flex px-4 justify-between items-center pb-6 border-b-1 border-default">
+          <header class="flex items-center justify-between border-b border-gray-100 bg-gray-50 px-4 py-3">
             <h1>
-              <Text variant="heading-2">{title}</Text>
+              <Text variant="heading-3">{title}</Text>
             </h1>
             <Button variant="icon" onClick={onClose}>
               <Icon id="XMark" width={20} height={20} strokeWidth={2} />
