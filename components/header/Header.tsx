@@ -63,14 +63,17 @@ function Header(
 ) {
   const searchbar = { ..._searchbar, products, suggestions, configVTEX };
   return (
-    <header class={"bg-header fixed w-full z-50"}>
-      <Navbar items={navItems} searchbar={searchbar} />
-      <HeaderSearchMenu searchbar={searchbar} />
-      <Modals
-        menu={{ items: navItems }}
-        searchbar={searchbar}
-      />
-    </header>
+    <>
+      <div class="h-[96px]" />
+      <header class={"bg-header fixed w-full z-50 shadow top-0 left-0"}>
+        <Navbar items={navItems} searchbar={searchbar} />
+        <HeaderSearchMenu searchbar={searchbar} />
+        <Modals
+          menu={{ items: navItems }}
+          searchbar={searchbar}
+        />
+      </header>
+    </>
   );
 }
 

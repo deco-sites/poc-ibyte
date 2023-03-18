@@ -36,6 +36,7 @@ const options: Omit<Options, "selfURL"> = {
       colors: {
         "default": "#1f2937",
         "header": "#c11717",
+        "alert": "#e9e5e6",
         "badge": "#52b028", // shopping cart tem isso tambem
         "footer": "#003232",
         "interactive": "#c11717",
