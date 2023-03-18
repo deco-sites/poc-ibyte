@@ -62,7 +62,7 @@ function CartButton() {
   return (
     <Button
       variant="primary"
-      class="relative text-white"
+      class="relative text-white hover:bg-header hover:text-white"
       aria-label="open cart"
       disabled={loading.value}
       onClick={() => {
