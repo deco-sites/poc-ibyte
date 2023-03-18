@@ -5,7 +5,7 @@
 
 import { signal } from "@preact/signals";
 
-const displayCart = signal(true);
+const displayCart = signal(false);
 const displayMenu = signal(false);
 const displaySearchbar = signal(false);
 const displayWishlist = signal(false);

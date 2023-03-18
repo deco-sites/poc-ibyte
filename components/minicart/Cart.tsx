@@ -33,7 +33,6 @@ function Cart() {
       },
       {} as CartInstallment,
     );
-  console.log(biggerInstallment);
 
   if (cart.value === null) {
     return null;

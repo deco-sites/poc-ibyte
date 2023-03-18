@@ -55,6 +55,7 @@ function Modals({ menu }: Props) {
 
       <Modal
         title="Meu carrinho"
+        class="max-w-sm"
         mode="sidebar-right"
         loading="lazy"
         open={displayCart.value}

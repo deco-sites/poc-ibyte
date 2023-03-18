@@ -31,41 +31,36 @@ function CartItem({ index }: Props) {
       <Image
         src={imageUrl}
         alt={skuName}
-        width={108}
-        height={150}
+        width={64}
+        height={64}
         class="object-cover object-center"
       />
       <div class="flex-grow">
-        <Text variant="body">
+        <Text variant="button" as="p" class="text-sm font-body mb-3">
           {name}
         </Text>
-        <div class="flex items-center gap-2">
-          <Text class="line-through" tone="subdued" variant="list-price">
-            {formatPrice(listPrice / 100, currencyCode!, locale)}
-          </Text>
-          <Text tone="price" variant="caption">
-            {isGift
-              ? "Grátis"
-              : formatPrice(sellingPrice / 100, currencyCode!, locale)}
-          </Text>
-        </div>
-        <div class="mt-6 max-w-min">
+        <div class="w-full flex justify-between items-center">
           <QuantitySelector
             disabled={loading.value || isGift}
             quantity={quantity}
             onChange={(quantity) =>
               updateItems({ orderItems: [{ index, quantity }] })}
           />
+          <Text
+            variant="button"
+            as="p"
+            tone="price"
+            class="text-base font-body"
+          >
+            {isGift ? "Grátis" : (
+              <>
+                {formatPrice(sellingPrice / 100, currencyCode!, locale)}{' '}
+                <small class="text-gray-700">à vista</small>
+              </>
+            )}
+          </Text>
         </div>
       </div>
-      <Button
-        onClick={() => updateItems({ orderItems: [{ index, quantity: 0 }] })}
-        disabled={loading.value || isGift}
-        loading={loading.value}
-        variant="icon"
-      >
-        <Icon id="Trash" width={20} height={20} />
-      </Button>
     </div>
   );
 }

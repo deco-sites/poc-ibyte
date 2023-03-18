@@ -23,7 +23,7 @@ export type Props = JSX.IntrinsicElements["dialog"] & {
 };
 
 const styles = {
-  "sidebar-right": "animate-slide-left sm:ml-auto",
+  "sidebar-right": "animate-slide-left ml-auto",
   "sidebar-left": "animate-slide-right",
   center: "",
 };
