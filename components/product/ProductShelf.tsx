@@ -1,13 +1,13 @@
+import type { LoaderReturnType } from "$live/types.ts";
 import ProductCard from "$store/components/product/ProductCard.tsx";
+import Button from "$store/components/ui/Button.tsx";
 import Container from "$store/components/ui/Container.tsx";
-import Text from "$store/components/ui/Text.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
+import SectionTitle from "$store/components/ui/SectionTitle.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderControllerJS from "$store/islands/SliderJS.tsx";
-import Button from "$store/components/ui/Button.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
-import { useId } from "preact/hooks";
-import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
+import { useId } from "preact/hooks";
 
 export interface Props {
   title: string;
@@ -30,12 +30,10 @@ function ProductShelf({
       id={id}
       class="grid grid-cols-[48px_1fr_48px] grid-rows-[48px_1fr_48px_1fr] py-10 px-0 sm:px-5"
     >
-      <h2 class="text-left row-start-1 col-span-full pl-4">
-        <span class="text-heading-3 font-semibold">{title}</span>
-      </h2>
+      <SectionTitle title={title} />
 
       <Slider
-        class="gap-6 col-span-full row-start-2 row-end-5"
+        class="gap-6 col-span-full row-start-2 row-end-5 pb-3"
         snap="snap-center sm:snap-start block first:mx-3 sm:first:mx-0 last:mr-6 sm:last:mr-0"
       >
         {products?.map((product) => (
