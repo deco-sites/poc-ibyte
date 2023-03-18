@@ -54,7 +54,7 @@ function CartItem({ index }: Props) {
           >
             {isGift ? "Grátis" : (
               <>
-                {formatPrice(sellingPrice / 100, currencyCode!, locale)}{' '}
+                {formatPrice(sellingPrice / 100, currencyCode!, locale)}{" "}
                 <small class="text-gray-700">à vista</small>
               </>
             )}
