@@ -683,13 +683,6 @@ const manifest: DecoManifest = {
         "title": " Header",
         "type": "object",
         "properties": {
-          "alerts": {
-            "type": "array",
-            "items": {
-              "type": "string",
-            },
-            "title": "Alerts",
-          },
           "searchbar": {
             "title": "Search Bar",
             "type": "object",
@@ -701,7 +694,7 @@ const manifest: DecoManifest = {
                 ],
                 "title": "Placeholder",
                 "description": "Search bar default placeholder message",
-                "default": "What are you looking for?",
+                "default": "O que você procura?",
               },
               "action": {
                 "type": [
@@ -839,9 +832,7 @@ const manifest: DecoManifest = {
             "description": "vtex config used for search autocompletion;",
           },
         },
-        "required": [
-          "alerts",
-        ],
+        "required": [],
       },
       "outputSchema": null,
     },

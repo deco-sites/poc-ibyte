@@ -34,11 +34,11 @@ const options: Omit<Options, "selfURL"> = {
   theme: {
     extend: {
       colors: {
-        "default": "#FFFFFF",
-        "header": "#FFFFFF",
+        "default": "#1f2937",
+        "header": "#c11717",
         "badge": "#8C3D3D", // shopping cart tem isso tambem
         "footer": "#003232",
-        "interactive": "#161616",
+        "interactive": "#c11717",
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
@@ -56,7 +56,7 @@ const options: Omit<Options, "selfURL"> = {
       borderColor: {
         "default": "#D4DBD7",
         "default-inverse": "#FFFFFF",
-        "interactive": "#161616",
+        "interactive": "#c11717",
         "focus": "#3379EF",
         "positive": "#1A7346",
         "critical": "#B44125",

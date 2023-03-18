@@ -16,20 +16,25 @@ function Navbar({ items, searchbar }: {
     <>
       {/* Mobile Version */}
       <div
-        class={`md:hidden flex flex-row justify-between items-center h-[${navbarHeight}] border-b-1 border-default w-full px-2 gap-2`}
+        class={`md:hidden flex flex-row justify-between items-center w-full px-2 gap-2 text-white py-[0.2rem]`}
       >
         <HeaderButton variant="menu" />
-
         <a
           href="/"
-          class={`flex-grow inline-flex items-center min-h-[${navbarHeight}]`}
+          class="flex-grow inline-flex items-center"
           aria-label="Store logo"
         >
-          <Icon id="Logo" width={126} height={16} />
+          <Icon id="Logo" width={64} height={45} />
         </a>
 
         <div class="flex gap-1">
-          <HeaderButton variant="search" />
+          <a
+            href="https://bit.ly/faleconsultor-ibyte"
+            class="flex items-center px-2"
+          >
+            <Icon id="WhatsApp" width={28} height={28} />
+          </a>
+          <HeaderButton variant="wishlist" />
           <HeaderButton variant="cart" />
         </div>
       </div>

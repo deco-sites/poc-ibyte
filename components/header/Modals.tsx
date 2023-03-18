@@ -1,22 +1,22 @@
 import Modal from "$store/components/ui/Modal.tsx";
-import { lazy, Suspense } from "preact/compat";
 import { useUI } from "$store/sdk/useUI.ts";
+import { lazy, Suspense } from "preact/compat";
 
 import type { Props as MenuProps } from "$store/components/header/Menu.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 import Loading from "$store/components/ui/Loading.tsx";
 
 const Menu = lazy(() => import("$store/components/header/Menu.tsx"));
 const Cart = lazy(() => import("$store/components/minicart/Cart.tsx"));
-const Searchbar = lazy(() => import("$store/components/search/Searchbar.tsx"));
 
 interface Props {
   menu: MenuProps;
   searchbar?: SearchbarProps;
 }
 
-function Modals({ menu, searchbar }: Props) {
-  const { displayCart, displayMenu, displaySearchbar } = useUI();
+function Modals({ menu }: Props) {
+  const { displayCart, displayMenu, displayWishlist } = useUI();
 
   return (
     <>
@@ -35,17 +35,19 @@ function Modals({ menu, searchbar }: Props) {
       </Modal>
 
       <Modal
-        title="Buscar"
-        mode="sidebar-right"
+        title="Wishlist"
+        mode="center"
         loading="lazy"
-        open={displaySearchbar.value &&
-          window?.matchMedia("(max-width: 767px)")?.matches}
+        open={displayWishlist.value}
         onClose={() => {
-          displaySearchbar.value = false;
+          displayWishlist.value = false;
         }}
       >
         <Suspense fallback={<Loading />}>
-          <Searchbar {...searchbar} />
+          <div>
+            <Icon id="Heart" width={28} height={28} />
+          </div>
+          <p>Voce nao tem produto favoritado.</p>
         </Suspense>
       </Modal>
 

@@ -26,11 +26,29 @@ function MenuButton() {
     <Button
       variant="icon"
       aria-label="open menu"
+      class="text-white"
       onClick={() => {
         displayMenu.value = true;
       }}
     >
-      <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
+      <Icon id="Bars3" width={32} height={32} strokeWidth={0.01} />
+    </Button>
+  );
+}
+
+function WishlistButton() {
+  const { displayWishlist } = useUI();
+
+  return (
+    <Button
+      variant="icon"
+      aria-label="open menu"
+      class="text-white"
+      onClick={() => {
+        displayWishlist.value = true;
+      }}
+    >
+      <Icon id="Heart" width={32} height={32} strokeWidth={1.5} />
     </Button>
   );
 }
@@ -38,29 +56,34 @@ function MenuButton() {
 function CartButton() {
   const { displayCart } = useUI();
   const { loading, cart } = useCart();
+  console.log(cart.value);
   const totalItems = cart.value?.items.length || null;
 
   return (
     <Button
-      variant="icon"
-      class="relative"
+      variant="primary"
+      class="relative text-white"
       aria-label="open cart"
       disabled={loading.value}
       onClick={() => {
         displayCart.value = true;
       }}
     >
-      <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
-      {totalItems && (
-        <span class="absolute text-[9px] right-0 top-0 rounded-full bg-badge text-white w-4 h-4 flex items-center justify-center">
-          {totalItems}
-        </span>
-      )}
+    <Icon id="ShoppingCart" width={28} height={32} />
+      <span class="absolute text-[9px] right-0 top-0 rounded-full bg-badge text-white w-4 h-4 flex items-center justify-center">
+        {totalItems}
+      </span>
     </Button>
   );
 }
 
-function HeaderButton({ variant }: { variant: "cart" | "search" | "menu" }) {
+function HeaderButton(
+  { variant }: { variant: "cart" | "search" | "menu" | "wishlist" },
+) {
+  if (variant === "wishlist") {
+    return <WishlistButton />;
+  }
+
   if (variant === "cart") {
     return <CartButton />;
   }

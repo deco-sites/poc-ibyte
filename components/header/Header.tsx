@@ -1,13 +1,13 @@
-import Modals from "$store/islands/HeaderModals.tsx";
-import type { Image } from "deco-sites/std/components/types.ts";
-import type { EditableProps as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
+import type { EditableProps as SearchbarProps } from "$store/components/search/Searchbar.tsx";
+// import Searchbar from "$store/components/search/Searchbar.tsx";
+import Modals from "$store/islands/HeaderModals.tsx";
+import HeaderSearchMenu from "$store/islands/HeaderSearchMenu.tsx";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
+import type { Image } from "deco-sites/std/components/types.ts";
 import type { ClientConfigVTEX } from "deco-sites/std/functions/vtexConfig.ts";
-
-import Alert from "./Alert.tsx";
+import { lazy } from "preact/compat";
 import Navbar from "./Navbar.tsx";
-import { headerHeight } from "./constants.ts";
 
 export interface NavItem {
   label: string;
@@ -27,7 +27,6 @@ export interface NavItem {
 }
 
 export interface Props {
-  alerts: string[];
   /** @title Search Bar */
   searchbar?: SearchbarProps;
   /**
@@ -55,7 +54,6 @@ export interface Props {
 
 function Header(
   {
-    alerts,
     searchbar: _searchbar,
     products,
     navItems = [],
@@ -65,12 +63,9 @@ function Header(
 ) {
   const searchbar = { ..._searchbar, products, suggestions, configVTEX };
   return (
-    <header class={`h-[${headerHeight}]`}>
-      <div class="bg-default fixed w-full z-50">
-        <Alert alerts={alerts} />
-        <Navbar items={navItems} searchbar={searchbar} />
-      </div>
-
+    <header class={"bg-header fixed w-full z-50"}>
+      <Navbar items={navItems} searchbar={searchbar} />
+      <HeaderSearchMenu searchbar={searchbar} />
       <Modals
         menu={{ items: navItems }}
         searchbar={searchbar}
