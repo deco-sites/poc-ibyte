@@ -49,7 +49,7 @@ function ProductCard({ product, preload }: Props) {
     offers,
   } = product;
   const [front, back] = images ?? [];
-  const { listPrice, price, seller } = useOffer(offers);
+  const { listPrice, price, seller, installments } = useOffer(offers);
 
   return (
     <div
@@ -61,8 +61,8 @@ function ProductCard({ product, preload }: Props) {
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={200}
-            height={279}
+            width={176}
+            height={176}
             class="rounded w-full group-hover:hidden"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
@@ -71,8 +71,8 @@ function ProductCard({ product, preload }: Props) {
           <Image
             src={back?.url ?? front.url!}
             alt={back?.alternateName ?? front.alternateName}
-            width={200}
-            height={279}
+            width={176}
+            height={176}
             class="rounded w-full hidden group-hover:block"
             sizes="(max-width: 640px) 50vw, 20vw"
           />
@@ -90,24 +90,43 @@ function ProductCard({ product, preload }: Props) {
           )}
         </div>
 
-        <div class="flex flex-col gap-1 py-2">
+        <div class="py-2">
           <Text
-            class="overflow-hidden overflow-ellipsis whitespace-nowrap"
+            class="h-12 text-xs text-gray-800 line-clamp-3 md:text-sm"
             variant="caption"
+            as="p"
           >
             {name}
           </Text>
-          <div class="flex items-center gap-2">
-            <Text
-              class="line-through"
-              variant="list-price"
-              tone="subdued"
-            >
-              {formatPrice(listPrice, offers!.priceCurrency!)}
+          <div class="min-h-[44px] flex flex-col justify-end">
+            {listPrice !== price
+              ? (
+                <Text
+                  class="line-through text-gray-500"
+                  variant="list-price"
+                  tone="subdued"
+                  as="p"
+                >
+                  {formatPrice(listPrice, offers!.priceCurrency!)}
+                </Text>
+              )
+              : null}
+            <Text variant="body" tone="price" as="p" class="text-base">
+              <span class="font-semibold">
+                {formatPrice(price, offers!.priceCurrency!)}
+              </span>{" "}
+              à vista
             </Text>
-            <Text variant="caption" tone="price">
-              {formatPrice(price, offers!.priceCurrency!)}
-            </Text>
+            {installments && !installments?.includes("1x")
+              ? (
+                <Text variant="list-price" tone="price" as="p" class="text-sm">
+                  ou{" "}
+                  <span class="font-semibold">
+                    {installments.replace(" sem juros", "")}
+                  </span>
+                </Text>
+              )
+              : null}
           </div>
         </div>
       </a>

@@ -116,7 +116,7 @@ function Dots({ images, interval = 0 }: Pick<Props, "images" | "interval">) {
         }}
       >
       </style>
-      <ol class="flex items-center justify-center col-span-full gap-4 z-10 row-start-4">
+      <ol class="flex items-center justify-center col-span-full gap-4 z-10 row-start-6">
         {images?.map((_, index) => (
           <li class="h-full">
             <button

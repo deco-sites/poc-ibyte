@@ -1,7 +1,8 @@
-import { JSX } from "preact";
+import { ComponentType, JSX } from "preact";
 import { forwardRef } from "preact/compat";
 
-type Props = JSX.IntrinsicElements["span"] & {
+type Props = JSX.HTMLAttributes & {
+  as?: "span" | "p" | ComponentType;
   tone?:
     | "default"
     | "default-inverse"
@@ -20,16 +21,26 @@ type Props = JSX.IntrinsicElements["span"] & {
     | "body"
     | "caption"
     | "list-price";
+  class?: string;
 };
 
 const Text = forwardRef<HTMLSpanElement, Props>((
-  { tone = "default", variant = "body", class: _class = "", ...props },
+  {
+    as = "span",
+    tone = "default",
+    variant = "body",
+    class: _class = "",
+    ...props
+  },
   ref,
 ) => {
+  const Component = as as ComponentType<
+    { className: string }
+  >;
   return (
-    <span
+    <Component
       {...props}
-      class={`font-${variant} text-${variant} text-${tone} ${_class}`}
+      className={`font-${variant} text-${variant} text-${tone} ${_class}`}
       ref={ref}
     />
   );

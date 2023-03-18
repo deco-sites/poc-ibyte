@@ -49,7 +49,7 @@ const options: Omit<Options, "selfURL"> = {
         "default-inverse": "#FFFFFF",
         "subdued": "#66736C",
         "subdued-inverse": "#C6C6C6",
-        "price": "#8C3D3D",
+        "price": "#000000",
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#B44125",
@@ -73,7 +73,7 @@ const options: Omit<Options, "selfURL"> = {
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
         "caption": ["13px", "16px"],
-        "list-price": ["10px", "20px"],
+        "list-price": [".875rem", "1.25rem"],
       },
       fontWeight: {
         "heading-1": "500",
@@ -149,6 +149,12 @@ const options: Omit<Options, "selfURL"> = {
         background: "rgba(0, 0, 0, 0.5)",
       },
     },
+    "line-clamp": ([mod]) => ({
+      "overflow": "hidden",
+      "display": "-webkit-box",
+      "-webkit-box-orient": "vertical",
+      "-webkit-line-clamp": mod,
+    }),
     "scroll-snap-center": {
       "scroll-snap-align": "center",
     },
