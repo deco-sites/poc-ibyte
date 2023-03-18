@@ -1,49 +1,32 @@
+import Container from "$store/components/ui/Container.tsx";
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import Text from "$store/components/ui/Text.tsx";
-import Container from "$store/components/ui/Container.tsx";
 
-import Newsletter from "./Newsletter.tsx";
+import Slider from "$store/components/ui/Slider.tsx";
 import type { ComponentChildren } from "preact";
+import SectionItem, { isIcon } from "./SectionItem.tsx";
 
-export type IconItem = { icon: AvailableIcons };
+export type IconItem = { icon: AvailableIcons; href?: string };
+export type ImageItem = {
+  path: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  href?: string;
+};
 export type StringItem = {
+  icon?: AvailableIcons;
+  iconPosition?: "left" | "right";
   label: string;
   href: string;
 };
 
-export type Item = StringItem | IconItem;
+export type Item = StringItem | IconItem | ImageItem;
 
 export type Section = {
   label: string;
   children: Item[];
 };
-
-const isIcon = (item: Item): item is IconItem =>
-  // deno-lint-ignore no-explicit-any
-  typeof (item as any)?.icon === "string";
-
-function SectionItem({ item }: { item: Item }) {
-  return (
-    <Text variant="caption" tone="default-inverse">
-      {isIcon(item)
-        ? (
-          <div class="border-default border-1 py-1.5 px-2.5">
-            <Icon
-              id={item.icon}
-              width={25}
-              height={20}
-              strokeWidth={0.01}
-            />
-          </div>
-        )
-        : (
-          <a href={item.href}>
-            {item.label}
-          </a>
-        )}
-    </Text>
-  );
-}
 
 function FooterContainer(
   { children, class: _class = "" }: {
@@ -55,27 +38,170 @@ function FooterContainer(
 }
 
 export interface Props {
-  sections?: Section[];
+  primarySections?: Section[];
+  secondarySections?: Section[];
+  specialistPhone: string;
+  disclaimerText: string;
 }
 
-function Footer({ sections = [] }: Props) {
+function Footer(
+  {
+    primarySections = [],
+    secondarySections = [],
+    specialistPhone,
+    disclaimerText,
+  }: Props,
+) {
   return (
-    <footer class="w-full bg-footer flex flex-col divide-y-1 divide-default">
-      <div>
-        <Container class="w-full flex flex-col divide-y-1 divide-default">
-          <FooterContainer>
-            <Newsletter />
-          </FooterContainer>
+    <footer class="w-full bg-white flex flex-col">
+      <Container class="max-w-[1280px] bg-header mb-7 grid grid-cols-[48px_1fr_48px]">
+        <Slider
+          class="gap-6 col-span-full row-start-2 row-end-5 text-white"
+          snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
+        >
+          <a
+            href="/"
+            aria-label="Consulte Frete Grátis"
+            class="flex items-center gap-3 py-7"
+          >
+            <Icon id="Truck" strokeWidth={1} width={30} height={30} />
+            <div>
+              <p class="uppercase whitespace-nowrap font-semibold text-base">
+                Frete Grátis
+              </p>
+              <p class="text-sm whitespace-nowrap font-extralight">Consulte*</p>
+            </div>
+          </a>
+          <a
+            href="/"
+            aria-label="Compre no site e retire na loja"
+            class="flex items-center gap-3 py-7"
+          >
+            <Icon id="MapPin" strokeWidth={1} width={30} height={30} />
+            <div>
+              <p class="uppercase whitespace-nowrap font-semibold text-base">
+                Compra no site
+              </p>
+              <p class="text-sm whitespace-nowrap font-extralight">
+                E retire na loja*
+              </p>
+            </div>
+          </a>
+          <div
+            aria-label="Em até 12 vezes no cartão de crédito*"
+            class="flex items-center gap-3 py-7"
+          >
+            <Icon id="CreditCard" strokeWidth={1} width={30} height={30} />
+            <div>
+              <p class="uppercase whitespace-nowrap font-semibold text-base">
+                Em até 12X
+              </p>
+              <p class="text-sm whitespace-nowrap font-extralight">
+                No cartão de crédito*
+              </p>
+            </div>
+          </div>
+          <a
+            href="/"
+            aria-label="Compre no site e retire na loja"
+            class="flex items-center gap-3 py-7"
+          >
+            <Icon id="ShieldCheck" strokeWidth={1} width={30} height={30} />
+            <div>
+              <p class="uppercase whitespace-nowrap font-semibold text-base">
+                Garantia
+              </p>
+              <p class="text-sm whitespace-nowrap font-extralight">
+                Veja as condições
+              </p>
+            </div>
+          </a>
+        </Slider>
+      </Container>
+      {specialistPhone
+        ? (
+          <Container class="mb-10">
+            <p class="text-sm font-medium text-center mb-2">
+              Fale com o Consultor Especializado
+            </p>
+            <a
+              href="https://bit.ly/faleconsultor-ibyte"
+              class="font-heading-2 text-heading-2 gap-2 flex justify-center items-center"
+            >
+              <Icon
+                id="WhatsApp"
+                width={26}
+                height={26}
+                class="text-[#56b231]"
+              />
+              <span>{specialistPhone}</span>
+            </a>
+          </Container>
+        )
+        : null}
+      <Container class="w-full flex flex-col ">
+        <FooterContainer>
+          {/* Desktop view */}
+          <ul class="hidden sm:flex flex-row gap-20">
+            {primarySections.map((section) => (
+              <li>
+                <div>
+                  <Text variant="heading-3" tone="default">
+                    {section.label}
+                  </Text>
 
+                  <ul
+                    class={`flex ${
+                      isIcon(section.children[0]) ? "flex-row" : "flex-col"
+                    } gap-2 pt-2 items-center`}
+                  >
+                    {section.children.map((item) => (
+                      <li>
+                        <SectionItem item={item} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          {/* Mobile view */}
+          <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
+            {primarySections.map((section) => (
+              <li>
+                <Text variant="body" tone="default">
+                  <Text variant="heading-3" class="text-default">
+                    {section.label}
+                  </Text>
+                  <ul
+                    class={`flex ${
+                      isIcon(section.children[0]) ? "flex-row" : "flex-col"
+                    } gap-2 px-2 pt-2`}
+                  >
+                    {section.children.map((item) => (
+                      <li>
+                        <SectionItem item={item} />
+                      </li>
+                    ))}
+                  </ul>
+                </Text>
+              </li>
+            ))}
+          </ul>
+        </FooterContainer>
+      </Container>
+      <div class="bg-gray-100">
+        <Container class="w-full flex flex-col">
           <FooterContainer>
             {/* Desktop view */}
             <ul class="hidden sm:flex flex-row gap-20">
-              {sections.map((section) => (
+              {secondarySections.map((section) => (
                 <li>
                   <div>
-                    <Text variant="heading-3" tone="default-inverse">
+                    <p class="text-sm">
                       {section.label}
-                    </Text>
+                    </p>
 
                     <ul
                       class={`flex ${
@@ -95,41 +221,44 @@ function Footer({ sections = [] }: Props) {
 
             {/* Mobile view */}
             <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
-              {sections.map((section) => (
+              {secondarySections.map((section) => (
                 <li>
-                  <Text variant="body" tone="default-inverse">
-                    <details>
-                      <summary>
-                        {section.label}
-                      </summary>
-
-                      <ul
-                        class={`flex ${
-                          isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                        } gap-2 px-2 pt-2`}
-                      >
-                        {section.children.map((item) => (
-                          <li>
-                            <SectionItem item={item} />
-                          </li>
-                        ))}
-                      </ul>
-                    </details>
+                  <Text variant="body" tone="default">
+                    <p class="text-sm">
+                      {section.label}
+                    </p>
+                    <ul
+                      class={`flex ${
+                        isIcon(section.children[0]) ? "flex-row" : "flex-col"
+                      } gap-2 px-2 pt-2`}
+                    >
+                      {section.children.map((item) => (
+                        <li>
+                          <SectionItem item={item} />
+                        </li>
+                      ))}
+                    </ul>
                   </Text>
                 </li>
               ))}
             </ul>
           </FooterContainer>
         </Container>
-      </div>
 
-      <div>
-        <Container class="w-full">
-          <FooterContainer class="flex justify-between w-full">
+        {disclaimerText
+          ? (
+            <Container class="w-full pt-5 mb-2 px-4 text-sm border-t-1 border-gray-200">
+              {disclaimerText}
+            </Container>
+          )
+          : null}
+
+        <Container class="w-full ">
+          <FooterContainer class="flex justify-center w-full">
             <Text
               class="flex items-center gap-1"
               variant="body"
-              tone="default-inverse"
+              tone="default"
             >
               Powered by{" "}
               <a
@@ -139,41 +268,6 @@ function Footer({ sections = [] }: Props) {
                 <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
               </a>
             </Text>
-
-            <ul class="flex items-center justify-center gap-2">
-              <li>
-                <a
-                  href="https://www.instagram.com/deco.cx"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram logo"
-                >
-                  <Icon
-                    class="text-default-inverse"
-                    width={32}
-                    height={32}
-                    id="Instagram"
-                    strokeWidth={1}
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="http://www.deco.cx/discord"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Discord logo"
-                >
-                  <Icon
-                    class="text-default-inverse"
-                    width={32}
-                    height={32}
-                    id="Discord"
-                    strokeWidth={5}
-                  />
-                </a>
-              </li>
-            </ul>
           </FooterContainer>
         </Container>
       </div>

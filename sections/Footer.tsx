@@ -1,6 +1,7 @@
 export { default } from "$store/components/footer/Footer.tsx";
 export type {
   IconItem,
+  ImageItem,
   Item,
   Props,
   Section,

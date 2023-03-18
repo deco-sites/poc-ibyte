@@ -323,6 +323,10 @@ const manifest: DecoManifest = {
                   "anyOf": [
                     {
                       "type": "string",
+                      "const": "",
+                    },
+                    {
+                      "type": "string",
                       "const": "ChevronLeft",
                     },
                     {
@@ -453,6 +457,18 @@ const manifest: DecoManifest = {
                       "type": "string",
                       "const": "WhatsApp",
                     },
+                    {
+                      "type": "string",
+                      "const": "AppleIcon",
+                    },
+                    {
+                      "type": "string",
+                      "const": "GooglePlay",
+                    },
+                    {
+                      "type": "string",
+                      "const": "ShieldCheck",
+                    },
                   ],
                   "title": "Icon",
                   "description": "Image src",
@@ -488,7 +504,7 @@ const manifest: DecoManifest = {
         "title": " Footer",
         "type": "object",
         "properties": {
-          "sections": {
+          "primarySections": {
             "type": "array",
             "items": {
               "title": "Section",
@@ -507,27 +523,13 @@ const manifest: DecoManifest = {
                         "title": "StringItem",
                         "type": "object",
                         "properties": {
-                          "label": {
-                            "type": "string",
-                            "title": "Label",
-                          },
-                          "href": {
-                            "type": "string",
-                            "title": "Href",
-                          },
-                        },
-                        "required": [
-                          "label",
-                          "href",
-                        ],
-                      },
-                      {
-                        "title": "IconItem",
-                        "type": "object",
-                        "properties": {
                           "icon": {
                             "type": "string",
                             "anyOf": [
+                              {
+                                "type": "string",
+                                "const": "",
+                              },
                               {
                                 "type": "string",
                                 "const": "ChevronLeft",
@@ -660,12 +662,256 @@ const manifest: DecoManifest = {
                                 "type": "string",
                                 "const": "WhatsApp",
                               },
+                              {
+                                "type": "string",
+                                "const": "AppleIcon",
+                              },
+                              {
+                                "type": "string",
+                                "const": "GooglePlay",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ShieldCheck",
+                              },
                             ],
                             "title": "Icon",
+                          },
+                          "iconPosition": {
+                            "type": "string",
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "const": "left",
+                              },
+                              {
+                                "type": "string",
+                                "const": "right",
+                              },
+                            ],
+                            "title": "Icon Position",
+                          },
+                          "label": {
+                            "type": "string",
+                            "title": "Label",
+                          },
+                          "href": {
+                            "type": "string",
+                            "title": "Href",
+                          },
+                        },
+                        "required": [
+                          "label",
+                          "href",
+                        ],
+                      },
+                      {
+                        "title": "IconItem",
+                        "type": "object",
+                        "properties": {
+                          "icon": {
+                            "type": "string",
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "const": "",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ChevronLeft",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ChevronRight",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ChevronUp",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ChevronDown",
+                              },
+                              {
+                                "type": "string",
+                                "const": "QuestionMarkCircle",
+                              },
+                              {
+                                "type": "string",
+                                "const": "User",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ShoppingCart",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Bars3",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Heart",
+                              },
+                              {
+                                "type": "string",
+                                "const": "MagnifyingGlass",
+                              },
+                              {
+                                "type": "string",
+                                "const": "XMark",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Plus",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Minus",
+                              },
+                              {
+                                "type": "string",
+                                "const": "MapPin",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Phone",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Elo",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Mastercard",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Visa",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Pix",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Logo",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Facebook",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Instagram",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Tiktok",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Truck",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Discount",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Return",
+                              },
+                              {
+                                "type": "string",
+                                "const": "CreditCard",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Deco",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Discord",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Trash",
+                              },
+                              {
+                                "type": "string",
+                                "const": "FilterList",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Box",
+                              },
+                              {
+                                "type": "string",
+                                "const": "WhatsApp",
+                              },
+                              {
+                                "type": "string",
+                                "const": "AppleIcon",
+                              },
+                              {
+                                "type": "string",
+                                "const": "GooglePlay",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ShieldCheck",
+                              },
+                            ],
+                            "title": "Icon",
+                          },
+                          "href": {
+                            "type": [
+                              "string",
+                              "null",
+                            ],
+                            "title": "Href",
                           },
                         },
                         "required": [
                           "icon",
+                        ],
+                      },
+                      {
+                        "title": "ImageItem",
+                        "type": "object",
+                        "properties": {
+                          "path": {
+                            "type": "string",
+                            "title": "Path",
+                          },
+                          "alt": {
+                            "type": "string",
+                            "title": "Alt",
+                          },
+                          "width": {
+                            "type": [
+                              "number",
+                              "null",
+                            ],
+                            "title": "Width",
+                          },
+                          "height": {
+                            "type": [
+                              "number",
+                              "null",
+                            ],
+                            "title": "Height",
+                          },
+                          "href": {
+                            "type": [
+                              "string",
+                              "null",
+                            ],
+                            "title": "Href",
+                          },
+                        },
+                        "required": [
+                          "path",
+                          "alt",
                         ],
                       },
                     ],
@@ -679,10 +925,444 @@ const manifest: DecoManifest = {
                 "children",
               ],
             },
-            "title": "Sections",
+            "title": "Primary Sections",
+          },
+          "secondarySections": {
+            "type": "array",
+            "items": {
+              "title": "Section",
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "title": "Label",
+                },
+                "children": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "anyOf": [
+                      {
+                        "title": "StringItem",
+                        "type": "object",
+                        "properties": {
+                          "icon": {
+                            "type": "string",
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "const": "",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ChevronLeft",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ChevronRight",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ChevronUp",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ChevronDown",
+                              },
+                              {
+                                "type": "string",
+                                "const": "QuestionMarkCircle",
+                              },
+                              {
+                                "type": "string",
+                                "const": "User",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ShoppingCart",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Bars3",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Heart",
+                              },
+                              {
+                                "type": "string",
+                                "const": "MagnifyingGlass",
+                              },
+                              {
+                                "type": "string",
+                                "const": "XMark",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Plus",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Minus",
+                              },
+                              {
+                                "type": "string",
+                                "const": "MapPin",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Phone",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Elo",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Mastercard",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Visa",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Pix",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Logo",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Facebook",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Instagram",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Tiktok",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Truck",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Discount",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Return",
+                              },
+                              {
+                                "type": "string",
+                                "const": "CreditCard",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Deco",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Discord",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Trash",
+                              },
+                              {
+                                "type": "string",
+                                "const": "FilterList",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Box",
+                              },
+                              {
+                                "type": "string",
+                                "const": "WhatsApp",
+                              },
+                              {
+                                "type": "string",
+                                "const": "AppleIcon",
+                              },
+                              {
+                                "type": "string",
+                                "const": "GooglePlay",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ShieldCheck",
+                              },
+                            ],
+                            "title": "Icon",
+                          },
+                          "iconPosition": {
+                            "type": "string",
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "const": "left",
+                              },
+                              {
+                                "type": "string",
+                                "const": "right",
+                              },
+                            ],
+                            "title": "Icon Position",
+                          },
+                          "label": {
+                            "type": "string",
+                            "title": "Label",
+                          },
+                          "href": {
+                            "type": "string",
+                            "title": "Href",
+                          },
+                        },
+                        "required": [
+                          "label",
+                          "href",
+                        ],
+                      },
+                      {
+                        "title": "IconItem",
+                        "type": "object",
+                        "properties": {
+                          "icon": {
+                            "type": "string",
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "const": "",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ChevronLeft",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ChevronRight",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ChevronUp",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ChevronDown",
+                              },
+                              {
+                                "type": "string",
+                                "const": "QuestionMarkCircle",
+                              },
+                              {
+                                "type": "string",
+                                "const": "User",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ShoppingCart",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Bars3",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Heart",
+                              },
+                              {
+                                "type": "string",
+                                "const": "MagnifyingGlass",
+                              },
+                              {
+                                "type": "string",
+                                "const": "XMark",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Plus",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Minus",
+                              },
+                              {
+                                "type": "string",
+                                "const": "MapPin",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Phone",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Elo",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Mastercard",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Visa",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Pix",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Logo",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Facebook",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Instagram",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Tiktok",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Truck",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Discount",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Return",
+                              },
+                              {
+                                "type": "string",
+                                "const": "CreditCard",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Deco",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Discord",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Trash",
+                              },
+                              {
+                                "type": "string",
+                                "const": "FilterList",
+                              },
+                              {
+                                "type": "string",
+                                "const": "Box",
+                              },
+                              {
+                                "type": "string",
+                                "const": "WhatsApp",
+                              },
+                              {
+                                "type": "string",
+                                "const": "AppleIcon",
+                              },
+                              {
+                                "type": "string",
+                                "const": "GooglePlay",
+                              },
+                              {
+                                "type": "string",
+                                "const": "ShieldCheck",
+                              },
+                            ],
+                            "title": "Icon",
+                          },
+                          "href": {
+                            "type": [
+                              "string",
+                              "null",
+                            ],
+                            "title": "Href",
+                          },
+                        },
+                        "required": [
+                          "icon",
+                        ],
+                      },
+                      {
+                        "title": "ImageItem",
+                        "type": "object",
+                        "properties": {
+                          "path": {
+                            "type": "string",
+                            "title": "Path",
+                          },
+                          "alt": {
+                            "type": "string",
+                            "title": "Alt",
+                          },
+                          "width": {
+                            "type": [
+                              "number",
+                              "null",
+                            ],
+                            "title": "Width",
+                          },
+                          "height": {
+                            "type": [
+                              "number",
+                              "null",
+                            ],
+                            "title": "Height",
+                          },
+                          "href": {
+                            "type": [
+                              "string",
+                              "null",
+                            ],
+                            "title": "Href",
+                          },
+                        },
+                        "required": [
+                          "path",
+                          "alt",
+                        ],
+                      },
+                    ],
+                    "title": "Item",
+                  },
+                  "title": "Children",
+                },
+              },
+              "required": [
+                "label",
+                "children",
+              ],
+            },
+            "title": "Secondary Sections",
+          },
+          "specialistPhone": {
+            "type": "string",
+            "title": "Specialist Phone",
+          },
+          "disclaimerText": {
+            "type": "string",
+            "title": "Disclaimer Text",
           },
         },
-        "required": [],
+        "required": [
+          "specialistPhone",
+          "disclaimerText",
+        ],
       },
       "outputSchema": null,
     },
