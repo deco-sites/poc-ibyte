@@ -24,9 +24,7 @@ function Modals({ menu }: Props) {
       <Modal
         mode="sidebar-left"
         class="max-w-[18rem]"
-        customHeader={
-          <MenuHeader />
-        }
+        customHeader={<MenuHeader />}
         loading="lazy"
         open={displayMenu.value}
         onClose={() => {
