@@ -5,10 +5,11 @@ import Text from "$store/components/ui/Text.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import type { ComponentChildren } from "preact";
 import SectionItem, { isIcon } from "./SectionItem.tsx";
+import type { Image } from "deco-sites/std/components/types.ts";
 
 export type IconItem = { icon: AvailableIcons; href?: string };
 export type ImageItem = {
-  path: string;
+  path: Image;
   alt: string;
   width?: number;
   height?: number;
