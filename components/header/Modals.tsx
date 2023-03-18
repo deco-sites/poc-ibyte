@@ -6,6 +6,7 @@ import type { Props as MenuProps } from "$store/components/header/Menu.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Loading from "$store/components/ui/Loading.tsx";
+import MenuHeader from "./MenuHeader.tsx";
 
 const Menu = lazy(() => import("$store/components/header/Menu.tsx"));
 const Cart = lazy(() => import("$store/components/minicart/Cart.tsx"));
@@ -21,8 +22,11 @@ function Modals({ menu }: Props) {
   return (
     <>
       <Modal
-        title="Menu"
         mode="sidebar-left"
+        class="max-w-[18rem]"
+        customHeader={
+          <MenuHeader />
+        }
         loading="lazy"
         open={displayMenu.value}
         onClose={() => {

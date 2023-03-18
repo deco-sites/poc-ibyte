@@ -16,6 +16,7 @@ if (IS_BROWSER && typeof window.HTMLDialogElement === "undefined") {
 
 export type Props = JSX.IntrinsicElements["dialog"] & {
   title?: string;
+  customHeader?: JSX.Element;
   mode?: "sidebar-right" | "sidebar-left" | "center";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
@@ -34,6 +35,7 @@ const Modal = ({
   onClose,
   children,
   loading,
+  customHeader,
   ...props
 }: Props) => {
   const lazy = useSignal(false);
@@ -66,15 +68,17 @@ const Modal = ({
       onClick={(e) =>
         (e.target as HTMLDialogElement).tagName === "DIALOG" && onClose?.()}
     >
-      <section class="pt-6 h-full bg-default flex flex-col">
-        <header class="flex px-4 justify-between items-center pb-6 border-b-1 border-default">
-          <h1>
-            <Text variant="heading-2">{title}</Text>
-          </h1>
-          <Button variant="icon" onClick={onClose}>
-            <Icon id="XMark" width={20} height={20} strokeWidth={2} />
-          </Button>
-        </header>
+      <section class="h-full bg-white flex flex-col">
+        {customHeader ?? (
+          <header class="mt-6 flex px-4 justify-between items-center pb-6 border-b-1 border-default">
+            <h1>
+              <Text variant="heading-2">{title}</Text>
+            </h1>
+            <Button variant="icon" onClick={onClose}>
+              <Icon id="XMark" width={20} height={20} strokeWidth={2} />
+            </Button>
+          </header>
+        )}
         <div class="overflow-y-auto h-full flex flex-col">
           {loading === "lazy" ? lazy.value && children : children}
         </div>

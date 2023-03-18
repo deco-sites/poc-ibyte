@@ -447,6 +447,10 @@ const manifest: DecoManifest = {
                     },
                     {
                       "type": "string",
+                      "const": "Box",
+                    },
+                    {
+                      "type": "string",
                       "const": "WhatsApp",
                     },
                   ],
@@ -650,6 +654,10 @@ const manifest: DecoManifest = {
                               },
                               {
                                 "type": "string",
+                                "const": "Box",
+                              },
+                              {
+                                "type": "string",
                                 "const": "WhatsApp",
                               },
                             ],
@@ -694,7 +702,7 @@ const manifest: DecoManifest = {
                 ],
                 "title": "Placeholder",
                 "description": "Search bar default placeholder message",
-                "default": "O que você procura?",
+                "default": "What are you looking for?",
               },
               "action": {
                 "type": [
