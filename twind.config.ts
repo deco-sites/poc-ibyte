@@ -62,6 +62,7 @@ const options: Omit<Options, "selfURL"> = {
         "focus": "#3379EF",
         "positive": "#1A7346",
         "critical": "#B44125",
+        "emphasis-light": "#059669",
       },
       outline: {
         interactive: ["2px solid #3379EF", "2px"],
