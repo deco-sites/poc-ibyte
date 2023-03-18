@@ -69,7 +69,7 @@ function CartButton() {
         displayCart.value = true;
       }}
     >
-    <Icon id="ShoppingCart" width={28} height={32} />
+      <Icon id="ShoppingCart" width={28} height={32} />
       <span class="absolute text-[9px] right-0 top-0 rounded-full bg-badge text-white w-4 h-4 flex items-center justify-center">
         {totalItems}
       </span>
