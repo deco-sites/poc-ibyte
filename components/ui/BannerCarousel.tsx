@@ -17,18 +17,18 @@ export interface Banner {
   alt: string;
   action?: {
     /** @description when user clicks on the image, go to this link */
-    href: string;
+    href?: string;
     /** @description Image text title */
-    title: string;
+    title?: string;
     /** @description Image text subtitle */
-    subTitle: string;
+    subTitle?: string;
     /** @description Button label */
-    label: string;
+    label?: string;
   };
 }
 
 export interface Props {
-  images?: Banner[];
+  images: Banner[];
   /**
    * @description Check this option when this banner is the biggest image on the screen for image optimizations
    */
@@ -38,6 +38,16 @@ export interface Props {
    * @description time (in seconds) to start the carousel autoplay
    */
   interval?: number;
+  /**
+   * @title With buttons?
+   * @description check this option to show buttons to control the carousel
+   */
+  buttons: boolean;
+  /**
+   * @title With dots?
+   * @description check this option to show dots below the carousel
+   */
+  dots: boolean;
 }
 
 function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
@@ -49,7 +59,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   } = image;
 
   return (
-    <div class="relative h-[600px] min-w-[100vw] overflow-y-hidden">
+    <div class="relative h-auto sm:h-[600px] min-w-[100vw] overflow-y-hidden">
       <a href={action?.href ?? "#"} aria-label={action?.label}>
         <Picture class="w-full" preload={lcp}>
           <Source
@@ -57,7 +67,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
             fetchPriority={lcp ? "high" : "auto"}
             src={mobile}
             width={360}
-            height={600}
+            height={220}
           />
           <Source
             media="(min-width: 768px)"
@@ -73,7 +83,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
             alt={alt}
           />
         </Picture>
-        {action && (
+        {(action?.title && action?.subTitle && action?.label) && (
           <div
             class="absolute top-0 bottom-0 m-auto left-0 right-0 sm:right-auto sm:left-[12%] max-h-min max-w-[235px] flex flex-col gap-4 bg-hover-inverse p-4 rounded"
             style={{ backdropFilter: "blur(8px)" }}
@@ -92,7 +102,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   );
 }
 
-function Dots({ images, interval = 0 }: Props) {
+function Dots({ images, interval = 0 }: Pick<Props, "images" | "interval">) {
   return (
     <>
       <style
@@ -127,10 +137,10 @@ function Dots({ images, interval = 0 }: Props) {
                       }
                     `,
                   )
-                } w-16 sm:w-20 h-0.5`}
+                } w-8 sm:w-20 h-1.5 rounded-full`}
                 style={{
                   background:
-                    "linear-gradient(to right, #FFFFFF var(--dot-progress), rgba(255, 255, 255, 0.4) var(--dot-progress))",
+                    "linear-gradient(to right, #c11717 var(--dot-progress), rgba(228,228,228,1) var(--dot-progress))",
                 }}
               />
             </button>
@@ -178,12 +188,14 @@ function Controls() {
   );
 }
 
-function BannerCarousel({ images, preload, interval }: Props) {
+function BannerCarousel(
+  { images, preload, interval, buttons = true, dots = true }: Props,
+) {
   const id = useId();
-
+  const customId = `${id}-carousel`;
   return (
     <div
-      id={id}
+      id={customId}
       class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]"
     >
       <Slider class="col-span-full row-span-full scrollbar-none gap-6">
@@ -191,12 +203,12 @@ function BannerCarousel({ images, preload, interval }: Props) {
           <BannerItem image={image} lcp={index === 0 && preload} />
         ))}
       </Slider>
-
-      <Controls />
-
-      <Dots images={images} interval={interval} />
-
-      <SliderControllerJS rootId={id} interval={interval && interval * 1e3} />
+      {buttons ? <Controls /> : null}
+      {dots ? <Dots images={images} interval={interval} /> : null}
+      <SliderControllerJS
+        rootId={customId}
+        interval={interval && interval * 1e3}
+      />
     </div>
   );
 }

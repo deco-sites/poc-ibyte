@@ -15,8 +15,8 @@ function SectionItem({ item }: { item: Item }) {
       <Icon
         class="text-gray-600 max-h-[28px] max-w-[28px]"
         id={item.icon}
-        width="auto"
-        height="auto"
+        width="28"
+        height="28"
         strokeWidth={1.5}
       />
     );

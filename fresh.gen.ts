@@ -447,28 +447,35 @@ const manifest: DecoManifest = {
                   "type": "object",
                   "properties": {
                     "href": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null",
+                      ],
                       "title": "Href",
                     },
                     "title": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null",
+                      ],
                       "title": "Title",
                     },
                     "subTitle": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null",
+                      ],
                       "title": "Sub Title",
                     },
                     "label": {
-                      "type": "string",
+                      "type": [
+                        "string",
+                        "null",
+                      ],
                       "title": "Label",
                     },
                   },
-                  "required": [
-                    "href",
-                    "title",
-                    "subTitle",
-                    "label",
-                  ],
+                  "required": [],
                 },
               },
               "required": [
@@ -496,8 +503,23 @@ const manifest: DecoManifest = {
             "title": "Autoplay interval",
             "description": "time (in seconds) to start the carousel autoplay",
           },
+          "buttons": {
+            "type": "boolean",
+            "title": "With buttons?",
+            "description":
+              "check this option to show buttons to control the carousel",
+          },
+          "dots": {
+            "type": "boolean",
+            "title": "With dots?",
+            "description": "check this option to show dots below the carousel",
+          },
         },
-        "required": [],
+        "required": [
+          "images",
+          "buttons",
+          "dots",
+        ],
       },
       "outputSchema": null,
     },
