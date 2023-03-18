@@ -56,7 +56,6 @@ function WishlistButton() {
 function CartButton() {
   const { displayCart } = useUI();
   const { loading, cart } = useCart();
-  console.log(cart.value);
   const totalItems = cart.value?.items.length || null;
 
   return (
