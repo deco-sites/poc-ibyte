@@ -37,72 +37,197 @@ function GlobalTags() {
       <style
         dangerouslySetInnerHTML={{
           __html: `
-          /* latin-ext */
           @font-face {
-            font-family: 'Albert Sans';
+            font-family: 'Poppins';
+            src: url(${asset("/fonts/Poppins-Black.woff2")}) format('woff2'),
+                url(${asset("/fonts/Poppins-Black.woff")}) format('woff');
+            font-weight: 900;
             font-style: normal;
-            font-weight: 400;
             font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
             src: url(${
-            asset("/fonts/i7dOIFdwYjGaAMFtZd_QA1ZVYFeQGQyUV3U.woff2")
-          }) format('woff2');
-            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-          }
-          /* latin */
-          @font-face {
-            font-family: 'Albert Sans';
-            font-style: normal;
-            font-weight: 400;
+            asset("/fonts/Poppins-BlackItalic.woff2")
+          } format('woff2'),
+                url(${asset("/fonts/Poppins-BlackItalic.woff")}) format('woff');
+            font-weight: 900;
+            font-style: italic;
             font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
             src: url(${
-            asset("/fonts/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU.woff2")
-          }) format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-          }
-          /* latin-ext */
-          @font-face {
-            font-family: 'Albert Sans';
+            asset("/fonts/Poppins-ExtraBold.woff2")
+          }) format('woff2'),
+                url(${asset("/fonts/Poppins-ExtraBold.woff")}) format('woff');
+            font-weight: bold;
             font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url(${
+            asset("/fonts/Poppins-ExtraBoldItalic.woff2")
+          } format('woff2'),
+                url(${
+            asset("/fonts/Poppins-ExtraBoldItalic.woff")
+          } format('woff');
+            font-weight: bold;
+            font-style: italic;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url(${
+            asset("/fonts/Poppins-MediumItalic.woff2")
+          } format('woff2'),
+                url(${
+            asset("/fonts/Poppins-MediumItalic.woff")
+          }) format('woff');
             font-weight: 500;
+            font-style: italic;
             font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
             src: url(${
-            asset("/fonts/i7dOIFdwYjGaAMFtZd_QA1ZVYFeQGQyUV3U.woff2")
-          }) format('woff2');
-            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-          }
-          /* latin */
-          @font-face {
-            font-family: 'Albert Sans';
+            asset("/fonts/Poppins-SemiBoldItalic.woff2")
+          } format('woff2'),
+                url(${
+            asset("/fonts/Poppins-SemiBoldItalic.woff")
+          } format('woff');
+            font-weight: 600;
+            font-style: italic;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url(${
+            asset("/fonts/Poppins-BoldItalic.woff2")
+          } format('woff2'),
+                url(${asset("/fonts/Poppins-BoldItalic.woff")}) format('woff');
+            font-weight: bold;
+            font-style: italic;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url(${asset("/fonts/Poppins-SemiBold.woff2")}) format('woff2'),
+                url(${asset("/fonts/Poppins-SemiBold.woff")}) format('woff');
+            font-weight: 600;
             font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url(${asset("/fonts/Poppins-Bold.woff2")}) format('woff2'),
+                url(${asset("/fonts/Poppins-Bold.woff")}) format('woff');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url(${
+            asset("/fonts/Poppins-ExtraLightItalic.woff2")
+          } format('woff2'),
+                url(${
+            asset("/fonts/Poppins-ExtraLightItalic.woff")
+          } format('woff');
+            font-weight: 200;
+            font-style: italic;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url(${asset("/fonts/Poppins-Medium.woff2")}) format('woff2'),
+                url(${asset("/fonts/Poppins-Medium.woff")}) format('woff');
             font-weight: 500;
-            font-display: swap;
-            src: url(${
-            asset("/fonts/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU.woff2")
-          }) format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-          }
-          /* latin-ext */
-          @font-face {
-            font-family: 'Albert Sans';
             font-style: normal;
-            font-weight: 700;
             font-display: swap;
-            src: url(${
-            asset("/fonts/i7dOIFdwYjGaAMFtZd_QA1ZVYFeQGQyUV3U.woff2")
-          }) format('woff2');
-            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-          }
-          /* latin */
-          @font-face {
-            font-family: 'Albert Sans';
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url(${asset("/fonts/Poppins-Italic.woff2")}) format('woff2'),
+                url(${asset("/fonts/Poppins-Italic.woff")}) format('woff');
+            font-weight: normal;
+            font-style: italic;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url(${asset("/fonts/Poppins-Light.woff2")}) format('woff2'),
+                url(${asset("/fonts/Poppins-Light.woff")}) format('woff');
+            font-weight: 300;
             font-style: normal;
-            font-weight: 700;
             font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
             src: url(${
-            asset("/fonts/i7dOIFdwYjGaAMFtZd_QA1ZbYFeQGQyU.woff2")
-          }) format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-          }
+            asset("/fonts/Poppins-LightItalic.woff2")
+          } format('woff2'),
+                url(${asset("/fonts/Poppins-LightItalic.woff")}) format('woff');
+            font-weight: 300;
+            font-style: italic;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url(${asset("/fonts/Poppins-Regular.woff2")}) format('woff2'),
+                url(${asset("/fonts/Poppins-Regular.woff")}) format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url(${asset("/fonts/Poppins-Thin.woff2")}) format('woff2'),
+                url(${asset("/fonts/Poppins-Thin.woff")}) format('woff');
+            font-weight: 100;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url(${
+            asset("/fonts/Poppins-ExtraLight.woff2")
+          } format('woff2'),
+                url(${asset("/fonts/Poppins-ExtraLight.woff")}) format('woff');
+            font-weight: 200;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url(${
+            asset("/fonts/Poppins-ThinItalic.woff2")
+          } format('woff2'),
+                url(${asset("/fonts/Poppins-ThinItalic.woff")}) format('woff');
+            font-weight: 100;
+            font-style: italic;
+            font-display: swap;
+        }
+        
+        
       `,
         }}
       />

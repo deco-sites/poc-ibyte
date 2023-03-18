@@ -78,11 +78,11 @@ const options: Omit<Options, "selfURL"> = {
         "heading-1": "500",
         "heading-2": "500",
         "heading-3": "500",
-        "menu": "400",
+        "menu": "300",
         "button": "700",
-        "body": "400",
-        "caption": "400",
-        "list-price": "400",
+        "body": "300",
+        "caption": "300",
+        "list-price": "300",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",
@@ -111,7 +111,7 @@ const options: Omit<Options, "selfURL"> = {
       },
     },
     fontFamily: {
-      sans: ["Albert Sans", "sans-serif"],
+      sans: ["Poppins", "sans-serif"],
       serif: ["inherit", "serif"],
     },
     screens: {
@@ -130,6 +130,7 @@ const options: Omit<Options, "selfURL"> = {
       display: "flex",
       flexDirection: "column",
       minHeight: "100vh",
+      fontWeight: "300"
     },
     'section[data-manifest-key="./sections/Footer.tsx"]': {
       marginTop: "auto",
