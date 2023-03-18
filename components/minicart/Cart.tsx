@@ -131,6 +131,7 @@ function Cart() {
             href={`${CHECKOUT_URL}?orderFormId=${cart.value!.orderFormId}`}
           >
             <Button
+              variant="custom"
               class="py-3 w-full cursor-pointer rounded font-body bg-interactive py-3 text-center text-lg text-white transition hover:shadow"
               disabled={loading.value || cart.value.items.length === 0}
             >

@@ -2,12 +2,12 @@ import type { LoaderReturnType } from "$live/types.ts";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import Container from "$store/components/ui/Container.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
 import Text from "$store/components/ui/Text.tsx";
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
+import ProductDescription from "./ProductDescription.tsx";
 import ImageGallery from "./ImageGallery.tsx";
 import ProductSelector from "./ProductVariantSelector.tsx";
 
@@ -59,32 +59,51 @@ function Details({ page }: { page: ProductDetailsPage }) {
           </div>
           {/* Code and name */}
           <div class="mt-4 sm:mt-8">
-            <div>
-              <Text tone="subdued" variant="caption">
-                Cod. {gtin}
-              </Text>
-            </div>
-            <h1>
-              <Text variant="heading-3">{name}</Text>
+            <Text variant="caption" class="text-gray-400">
+              Cod. {gtin}
+            </Text>
+            <h1 class="text-heading-3 text-default font-body">
+              {name}
             </h1>
           </div>
           {/* Prices */}
-          <div class="mt-4">
-            <div class="flex flex-row gap-2 items-center">
-              <Text
-                class="line-through"
-                tone="subdued"
-                variant="list-price"
-              >
-                {formatPrice(listPrice, offers!.priceCurrency!)}
-              </Text>
-              <Text tone="price" variant="heading-3">
+          <div class="mt-3">
+            {listPrice !== price
+              ? (
+                <Text
+                  class="text-gray-500"
+                  variant="list-price"
+                  tone="subdued"
+                  as="p"
+                >
+                  de{" "}
+                  <Text
+                    class="line-through"
+                    variant="list-price"
+                    tone="subdued"
+                  >
+                    {formatPrice(listPrice, offers!.priceCurrency!)}
+                  </Text>
+                </Text>
+              )
+              : null}
+            <Text variant="body" tone="price" as="p" class="text-base mt-1">
+              por{" "}
+              <span class="font-semibold text-heading-2 text-emphasis">
                 {formatPrice(price, offers!.priceCurrency!)}
-              </Text>
-            </div>
-            <Text tone="subdued" variant="caption">
-              {installments}
+              </span>{" "}
+              à vista
             </Text>
+            {installments && !installments?.includes("1x")
+              ? (
+                <Text variant="list-price" tone="price" as="p" class="text-sm">
+                  ou{" "}
+                  <span class="font-semibold">
+                    {installments.replace(" sem juros", "")}
+                  </span>
+                </Text>
+              )
+              : null}
           </div>
           {/* Sku Selector */}
           <div class="mt-4 sm:mt-6">
@@ -93,28 +112,23 @@ function Details({ page }: { page: ProductDetailsPage }) {
           {/* Add to Cart and Favorites button */}
           <div class="mt-4 sm:mt-10 flex flex-col gap-2">
             {seller && (
-              <AddToCartButton
-                skuId={productID}
-                sellerId={seller}
-              />
+              <>
+                <AddToCartButton
+                  skuId={productID}
+                  sellerId={seller}
+                />
+                <p class="text-sm text-center">
+                  Vendido e entregue por{" "}
+                  <span class="font-medium">
+                    {seller === "1" ? "ibyte" : seller}
+                  </span>
+                </p>
+              </>
             )}
-            <Button variant="secondary">
-              <Icon id="Heart" width={20} height={20} strokeWidth={2} />{" "}
-              Favoritar
-            </Button>
-          </div>
-          {/* Description card */}
-          <div class="mt-4 sm:mt-6">
-            <Text variant="caption">
-              {description && (
-                <details>
-                  <summary class="cursor-pointer">Descrição</summary>
-                  <div class="ml-2 mt-2">{description}</div>
-                </details>
-              )}
-            </Text>
           </div>
         </div>
+        {/* Description card */}
+        {description ? <ProductDescription description={description} /> : null}
       </div>
     </Container>
   );

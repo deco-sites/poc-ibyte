@@ -36,7 +36,7 @@ function CartItem({ index }: Props) {
         class="object-cover object-center"
       />
       <div class="flex-grow">
-        <Text variant="button" as="p" class="text-sm font-body mb-3">
+        <Text variant="body" as="p" class="text-sm font-body mb-3">
           {name}
         </Text>
         <div class="w-full flex justify-between items-center">
@@ -47,7 +47,7 @@ function CartItem({ index }: Props) {
               updateItems({ orderItems: [{ index, quantity }] })}
           />
           <Text
-            variant="button"
+            variant="body"
             as="p"
             tone="price"
             class="text-base font-body"

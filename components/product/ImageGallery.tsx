@@ -28,7 +28,7 @@ const ImageGallery = ({ images }: Props) => {
         loading="eager"
       />
       <Slider class="overflow-auto snap-x snap-mandatory scroll-smooth">
-        <div class="relative w-full flex gap-3 first:ml-3">
+        <div class="relative w-full flex gap-3 first:ml-3 pb-2">
           {images.map((img, index) => (
             <Button
               key={img.url}
