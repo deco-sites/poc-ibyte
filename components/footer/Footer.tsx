@@ -121,7 +121,7 @@ function Footer(
       </Container>
       {specialistPhone
         ? (
-          <Container class="mb-10">
+          <Container class="mb-2">
             <p class="text-sm font-medium text-center mb-2">
               Fale com o Consultor Especializado
             </p>
@@ -168,7 +168,7 @@ function Footer(
           </ul>
 
           {/* Mobile view */}
-          <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
+          <ul class="flex flex-col sm:hidden sm:flex-row gap-4 pt-2">
             {primarySections.map((section) => (
               <li>
                 <Text variant="body" tone="default">
@@ -178,7 +178,7 @@ function Footer(
                   <ul
                     class={`flex ${
                       isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                    } gap-2 px-2 pt-2`}
+                    } gap-2 pt-3`}
                   >
                     {section.children.map((item) => (
                       <li>
@@ -221,17 +221,17 @@ function Footer(
             </ul>
 
             {/* Mobile view */}
-            <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
+            <ul class="flex flex-col sm:hidden sm:flex-row gap-6">
               {secondarySections.map((section) => (
                 <li>
                   <Text variant="body" tone="default">
-                    <p class="text-sm">
+                    <p class="text-sm font-semibold">
                       {section.label}
                     </p>
                     <ul
                       class={`flex ${
                         isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                      } gap-2 px-2 pt-2`}
+                      } gap-2 pt-3`}
                     >
                       {section.children.map((item) => (
                         <li>
@@ -248,7 +248,7 @@ function Footer(
 
         {disclaimerText
           ? (
-            <Container class="w-full pt-5 mb-2 px-4 text-sm border-t-1 border-gray-200">
+            <Container class="w-full pt-5 mb-2 px-4 text-sm border-t-1 border-gray-200 text-gray-500">
               {disclaimerText}
             </Container>
           )

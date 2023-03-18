@@ -17,7 +17,7 @@ function SectionItem({ item }: { item: Item }) {
         id={item.icon}
         width="auto"
         height="auto"
-        strokeWidth={1}
+        strokeWidth={1.5}
       />
     );
 
@@ -51,7 +51,7 @@ function SectionItem({ item }: { item: Item }) {
   }
 
   return (
-    <p class="text-sm text-gray-600">
+    <p class="text-sm text-gray-600 mb-2">
       <a
         class={`flex gap-2 ${
           item.iconPosition === "right" ? "flex-row-reverse" : ""
