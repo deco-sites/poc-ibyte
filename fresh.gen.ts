@@ -880,6 +880,7 @@ const manifest: DecoManifest = {
                         "type": "object",
                         "properties": {
                           "path": {
+                            "format": "image-uri",
                             "type": "string",
                             "title": "Path",
                           },
@@ -1303,6 +1304,7 @@ const manifest: DecoManifest = {
                         "type": "object",
                         "properties": {
                           "path": {
+                            "format": "image-uri",
                             "type": "string",
                             "title": "Path",
                           },
