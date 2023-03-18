@@ -1,6 +1,6 @@
+import Button from "$store/components/ui/Button.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Text from "$store/components/ui/Text.tsx";
-import Button from "$store/components/ui/Button.tsx";
 import { useSignal } from "@preact/signals";
 import type { INavItem } from "./NavItem.tsx";
 
@@ -8,62 +8,49 @@ export interface Props {
   items: INavItem[];
 }
 
-function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
+function MenuItem({ item, level = 1 }: { item: INavItem; level?: number }) {
   const open = useSignal(false);
   const hasChildren = Array.isArray(item.children) && item.children.length > 0;
 
-  const title = (
-    <Text
-      class="flex-grow min-h-[40px] flex items-center justify-start"
-      variant={level === 0 ? "menu" : "caption"}
-    >
-      {item.label}
-    </Text>
-  );
-
   return (
-    <li>
+    <li class="border-0">
       <div
-        class={`flex justify-between items-center w-full py-2 ${
-          level > 0 ? "pl-2" : ""
-        }`}
-        onClick={() => {
-          if (hasChildren) open.value = !open.value;
-        }}
+        class={`flex justify-between items-center w-full py-1 px-4`}
       >
-        {hasChildren
-          ? title
-          : <a class="w-full inline-block" href={item.href}>{title}</a>}
-
-        {hasChildren && (
-          <Button variant="icon">
-            <Icon
-              class={open.value === true ? "hidden" : "block"}
-              id="Plus"
-              height={20}
-              width={20}
-              strokeWidth={1.5}
-            />
-            <Icon
-              class={open.value === true ? "block" : "hidden"}
-              id="Minus"
-              height={20}
-              width={20}
-              strokeWidth={1.5}
-            />
-          </Button>
-        )}
+        <p class="w-full flex justify-between items-center h-[36px]">
+          <a
+            class={`flex-1 font-light text-base ${
+              !hasChildren ? "text-gray-600" : ""
+            }`}
+            href={item.href}
+          >
+            {item.label}
+          </a>
+          {hasChildren && (
+            <Button
+              class="text-default bg-white"
+              variant="icon"
+              onClick={() => {
+                open.value = !open.value;
+              }}
+            >
+              <Icon
+                id={open.value ? "ChevronUp" : "ChevronDown"}
+                width={22}
+                height={22}
+                strokeWidth={1.5}
+              />
+            </Button>
+          )}
+        </p>
       </div>
 
       {hasChildren && (
-        <ul class={`flex-col ${open.value === true ? "flex" : "hidden"}`}>
-          <li>
-            <a href={item.href} class="w-full py-2 pl-2 inline-block">
-              <Text class="underline" variant="caption">
-                Ver todos
-              </Text>
-            </a>
-          </li>
+        <ul
+          class={`bg-gray-50 pl-${level + 1} ${
+            open.value === true ? "block" : "hidden"
+          }`}
+        >
           {item.children!.map((node) => (
             <MenuItem
               item={node}
@@ -79,45 +66,27 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 function Menu({ items }: Props) {
   return (
     <>
-      <ul class="px-4 flex-grow flex flex-col divide-y divide-default">
+      <ul class="flex-grow flex flex-col">
         {items.map((item) => <MenuItem item={item} />)}
       </ul>
 
-      <ul class="flex flex-col py-2 bg-hover">
+      <ul class="flex flex-col py-2 bg-gray-50">
         <li>
           <a
             class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
+            href="https://www.ibyte.com.br/nossas-lojas"
           >
-            <Icon id="Heart" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Lista de desejos</Text>
+            <Icon id="MapPin" width={20} height={20} strokeWidth={1.5} />
+            <Text variant="menu">Nossas Lojas</Text>
           </a>
         </li>
         <li>
           <a
             class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
+            href="tel:8540205000"
           >
-            <Icon id="MapPin" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Nossas lojas</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="Phone" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Fale conosco</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="User" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Minha conta</Text>
+            <Icon id="Phone" width={20} height={20} strokeWidth={1.5} />
+            <Text variant="menu">Central de Atendimento</Text>
           </a>
         </li>
       </ul>

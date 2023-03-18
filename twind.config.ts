@@ -130,7 +130,7 @@ const options: Omit<Options, "selfURL"> = {
       display: "flex",
       flexDirection: "column",
       minHeight: "100vh",
-      fontWeight: "300"
+      fontWeight: "300",
     },
     'section[data-manifest-key="./sections/Footer.tsx"]': {
       marginTop: "auto",
