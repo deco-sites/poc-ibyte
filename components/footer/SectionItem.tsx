@@ -39,7 +39,9 @@ function SectionItem({ item }: { item: Item }) {
       <img
         src={item.path}
         alt={item.alt}
-        class={`w-${item.width} h-${item.height} block`}
+        width={item.width ?? '100%'}
+        height={item.height ?? 'auto'}
+        class="block"
       />
     );
 
