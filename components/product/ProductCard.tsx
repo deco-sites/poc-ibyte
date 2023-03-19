@@ -55,7 +55,9 @@ function ProductCard({ product, preload, variant }: Props) {
   return (
     <div
       id={`product-card-${productID}`}
-      class={`w-full group ${variant === "line" ? "flex bg-white rounded shadow p-2" : ""}`}
+      class={`w-full group ${
+        variant === "line" ? "flex bg-white rounded shadow p-2" : ""
+      }`}
     >
       <a
         href={url}
