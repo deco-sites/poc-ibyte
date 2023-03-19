@@ -17,7 +17,7 @@ function AddToCartButton({ skuId, sellerId }: Props) {
     <Button
       {...props}
       variant="custom"
-      class="py-3 w-full cursor-pointer rounded font-body bg-interactive py-3 text-center text-lg text-white transition hover:shadow"
+      class="md:max-w-[400px] py-3 w-full cursor-pointer rounded font-body bg-interactive py-3 text-center text-lg text-white transition hover:shadow"
     >
       <Icon width={20} height={20} id="ShoppingCart" />
       Comprar

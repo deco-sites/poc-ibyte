@@ -136,7 +136,7 @@ function Details(
                   skuId={productID}
                   sellerId={seller}
                 />
-                <p class="text-sm text-center">
+                <p class="text-sm text-center md:max-w-[400px]">
                   Vendido e entregue por{" "}
                   <span class="font-medium">
                     {seller === "1" ? "ibyte" : seller}

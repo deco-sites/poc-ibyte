@@ -36,7 +36,7 @@ function ShippingSimulation({ configVTEX, item }: Props) {
   const icon = <Icon width={24} height={24} id="MapPin" strokeWidth={1.5} />;
 
   return (
-    <section class="py-4 border-tb-1 border-gray-200">
+    <section class="py-4 border-tb-1 border-gray-200 md:max-w-[400px]">
       <header class="rounded-lg bg-gray-100 gap-2 p-1 justify-between flex mb-1">
         <Button
           variant="custom"
