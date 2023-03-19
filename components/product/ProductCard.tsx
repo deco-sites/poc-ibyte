@@ -65,7 +65,9 @@ function ProductCard({ product, preload, variant }: Props) {
         }`}
       >
         <div
-          class={`relative ${variant !== "line" ? "w-full" : "mr-3 w-[100px] md:w-full"}`}
+          class={`relative ${
+            variant !== "line" ? "w-full" : "mr-3 w-[100px] md:w-full"
+          }`}
         >
           <Image
             src={front.url!}
