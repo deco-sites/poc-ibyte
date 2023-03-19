@@ -63,7 +63,9 @@ function ProductCard({ product, preload, variant }: Props) {
         href={url}
         aria-label="product link"
       >
-        <div class={`relative ${variant !== "line" ? "w-full" : "mr-3"}`}>
+        <div
+          class={`relative ${variant !== "line" ? "w-full" : "mr-3 w-[100px]"}`}
+        >
           <Image
             src={front.url!}
             alt={front.alternateName}
@@ -96,7 +98,7 @@ function ProductCard({ product, preload, variant }: Props) {
           )}
         </div>
 
-        <div class={`flex-grow-1 ${variant !== "line" ? "py-2" : "py-0"}`}>
+        <div class={`${variant !== "line" ? "py-2" : "py-0 w-full"}`}>
           <Text
             class="h-12 text-xs text-gray-800 line-clamp-3 md:text-sm"
             variant="caption"
