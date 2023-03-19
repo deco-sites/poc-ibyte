@@ -8,7 +8,7 @@ export interface Highlight {
   src: LiveImage;
   alt: string;
   href: string;
-  label: string;
+  label?: string;
 }
 
 export interface Props {
@@ -33,13 +33,13 @@ function Highlights({ highlights = [], title }: Props) {
             class="flex flex-col gap-4 items-center min-w-[190px]"
           >
             <Image
-              class="rounded-[40px]"
+              class="rounded"
               src={src}
               alt={alt}
               width={190}
               height={265}
             />
-            <Text variant="body">{label}</Text>
+            {label ? <Text variant="body">{label}</Text> : null}
           </a>
         ))}
       </Slider>

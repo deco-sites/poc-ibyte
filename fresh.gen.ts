@@ -1836,7 +1836,10 @@ const manifest: DecoManifest = {
                   "title": "Href",
                 },
                 "label": {
-                  "type": "string",
+                  "type": [
+                    "string",
+                    "null",
+                  ],
                   "title": "Label",
                 },
               },
@@ -1844,7 +1847,6 @@ const manifest: DecoManifest = {
                 "src",
                 "alt",
                 "href",
-                "label",
               ],
             },
             "title": "Highlights",
