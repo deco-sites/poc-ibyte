@@ -31,6 +31,7 @@ function Navbar({ items, searchbar }: {
           <a
             href="https://bit.ly/faleconsultor-ibyte"
             class="flex items-center px-2"
+            aria-label="WhatsApp"
           >
             <Icon id="WhatsApp" width={28} height={28} />
           </a>

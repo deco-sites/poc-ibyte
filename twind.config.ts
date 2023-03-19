@@ -37,9 +37,9 @@ const options: Omit<Options, "selfURL"> = {
         "default": "#1f2937",
         "header": "#c11717",
         "alert": "#e9e5e6",
-        "badge": "#52b028", // shopping cart tem isso tambem
+        "badge": "#4DA626", // shopping cart tem isso tambem
         "footer": "#003232",
-        "interactive": "#52b028",
+        "interactive": "#4DA626",
         "interactive-inverse": "#FFFFFF",
         "hover": "rgba(0, 0, 0, 0.04)",
         "hover-inverse": "rgba(255, 255, 255, 0.4)",
@@ -53,12 +53,12 @@ const options: Omit<Options, "selfURL"> = {
         "section-title": "#161616",
         "positive": "#1A7346",
         "critical": "#B44125",
-        "emphasis": "#52b028",
+        "emphasis": "#4DA626",
       },
       borderColor: {
         "default": "#D4DBD7",
         "default-inverse": "#FFFFFF",
-        "interactive": "#52b028",
+        "interactive": "#4DA626",
         "focus": "#3379EF",
         "positive": "#1A7346",
         "critical": "#B44125",

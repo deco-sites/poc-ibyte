@@ -59,7 +59,7 @@ function Details({ page }: { page: ProductDetailsPage }) {
           </div>
           {/* Code and name */}
           <div class="mt-4 sm:mt-8">
-            <Text variant="caption" class="text-gray-400">
+            <Text variant="caption" class="text-gray-600">
               Cod. {gtin}
             </Text>
             <h1 class="text-heading-3 text-default font-body">

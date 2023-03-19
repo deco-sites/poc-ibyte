@@ -24,7 +24,7 @@ function SectionItem({ item }: { item: Item }) {
     return (
       item.href
         ? (
-          <a href={item.href}>
+          <a href={item.href} aria-label={item.accessibleName}>
             {IconElement}
           </a>
         )
