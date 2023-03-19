@@ -3,6 +3,7 @@ import Container from "$store/components/ui/Container.tsx";
 import Text from "$store/components/ui/Text.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import SectionTitle from "$store/components/ui/SectionTitle.tsx";
 
 export interface Highlight {
   src: LiveImage;
@@ -19,9 +20,7 @@ export interface Props {
 function Highlights({ highlights = [], title }: Props) {
   return (
     <Container class="grid grid-cols-1 grid-rows-[48px_1fr] py-10">
-      <h2 class="text-center">
-        <Text variant="heading-2">{title}</Text>
-      </h2>
+      <SectionTitle title={title} />
 
       <Slider
         class="gap-6"
