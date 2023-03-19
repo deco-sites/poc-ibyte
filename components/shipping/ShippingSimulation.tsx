@@ -24,7 +24,7 @@ function ShippingSimulation({ configVTEX, item }: Props) {
   const postalCode = useSignal("");
 
   const handleSimulation = useCallback(() => {
-    simulateShipping([item], "", "BRA");
+    simulateShipping([item], postalCode.value, "BRA");
   }, []);
 
   const buttonClasses = (isActive: boolean) => `
