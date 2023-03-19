@@ -16,30 +16,35 @@ export interface Props {
    * @description time (in seconds) to start the carousel autoplay
    */
   interval?: number;
+  auto?: boolean;
 }
 
-function Alert({ alerts = [], interval = 5 }: Props) {
+function Alert({ alerts = [], interval = 5, auto }: Props) {
   const id = useId();
+
+  const alertsEl = alerts.map(({ text, icon }) => (
+    <Text
+      class="flex justify-center gap-2 text-default items-center w-screen h-[38px] md:h-auto md:text-base md:max-w-[12rem]"
+      variant="caption"
+      tone="default"
+    >
+      <Icon
+        id={icon}
+        strokeWidth={1.5}
+        class="text-[#e1110f] w-[27px] h-[27px] md:min-w-[45px] md:h-[45px] flex-grow-1"
+      />
+      {text}
+    </Text>
+  ));
 
   return (
     <div id={id} class="py-6">
-      <Slider class="bg-alert gap-6 scrollbar-none py-2">
-        {alerts.map(({ text, icon }) => (
-          <Text
-            class="flex justify-center gap-2 text-default items-center w-screen h-[38px]"
-            variant="caption"
-            tone="default"
-          >
-            <Icon
-              id={icon}
-              width={27}
-              height={27}
-              strokeWidth={1.5}
-              class="text-[#e1110f]"
-            />
-            {text}
-          </Text>
-        ))}
+      <div class="hidden md:flex justify-center bg-alert gap-6 scrollbar-none py-2">
+        {alertsEl}
+      </div>
+
+      <Slider class="md:hidden bg-alert gap-6 scrollbar-none py-2">
+        {alertsEl}
       </Slider>
 
       <SliderControllerJS rootId={id} interval={interval && interval * 1e3} />

@@ -31,12 +31,16 @@ function NavItem({ item }: { item: INavItem }) {
                     href={node.href}
                   >
                     <Text variant="menu">{node.label}</Text>
-                    <Icon
-                      id={"ChevronRight"}
-                      width={22}
-                      height={22}
-                      strokeWidth={1.5}
-                    />
+                    {node.children?.length
+                      ? (
+                        <Icon
+                          id={"ChevronRight"}
+                          width={22}
+                          height={22}
+                          strokeWidth={1.5}
+                        />
+                      )
+                      : null}
                   </a>
 
                   <ul class="invisible group-scope-hover:visible absolute flex flex-col top-0 left-72 bg-gray-200 w-72 px-4">

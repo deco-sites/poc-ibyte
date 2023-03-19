@@ -311,6 +311,13 @@ const manifest: DecoManifest = {
             "title": "Autoplay interval",
             "description": "time (in seconds) to start the carousel autoplay",
           },
+          "auto": {
+            "type": [
+              "boolean",
+              "null",
+            ],
+            "title": "Auto",
+          },
         },
         "required": [
           "alerts",
