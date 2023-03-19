@@ -87,6 +87,7 @@ function ShippingSimulation({ configVTEX, item }: Props) {
               class="flex-1 pr-2 pl-4 focus:outline-none"
               onChange={(e) => postalCode.value = e.currentTarget.value}
               maxLength={8}
+              minLength={8}
               value={postalCode.value}
             />
             <Button
