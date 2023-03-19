@@ -49,72 +49,11 @@ function GlobalTags() {
         @font-face {
             font-family: 'Poppins';
             src: url(${
-            asset("/fonts/Poppins-BlackItalic.woff2")
-          } format('woff2'),
-                url(${asset("/fonts/Poppins-BlackItalic.woff")}) format('woff');
-            font-weight: 900;
-            font-style: italic;
-            font-display: swap;
-        }
-        
-        @font-face {
-            font-family: 'Poppins';
-            src: url(${
             asset("/fonts/Poppins-ExtraBold.woff2")
           }) format('woff2'),
                 url(${asset("/fonts/Poppins-ExtraBold.woff")}) format('woff');
             font-weight: bold;
             font-style: normal;
-            font-display: swap;
-        }
-        
-        @font-face {
-            font-family: 'Poppins';
-            src: url(${
-            asset("/fonts/Poppins-ExtraBoldItalic.woff2")
-          } format('woff2'),
-                url(${
-            asset("/fonts/Poppins-ExtraBoldItalic.woff")
-          } format('woff');
-            font-weight: bold;
-            font-style: italic;
-            font-display: swap;
-        }
-        
-        @font-face {
-            font-family: 'Poppins';
-            src: url(${
-            asset("/fonts/Poppins-MediumItalic.woff2")
-          } format('woff2'),
-                url(${
-            asset("/fonts/Poppins-MediumItalic.woff")
-          }) format('woff');
-            font-weight: 500;
-            font-style: italic;
-            font-display: swap;
-        }
-        
-        @font-face {
-            font-family: 'Poppins';
-            src: url(${
-            asset("/fonts/Poppins-SemiBoldItalic.woff2")
-          } format('woff2'),
-                url(${
-            asset("/fonts/Poppins-SemiBoldItalic.woff")
-          } format('woff');
-            font-weight: 600;
-            font-style: italic;
-            font-display: swap;
-        }
-        
-        @font-face {
-            font-family: 'Poppins';
-            src: url(${
-            asset("/fonts/Poppins-BoldItalic.woff2")
-          } format('woff2'),
-                url(${asset("/fonts/Poppins-BoldItalic.woff")}) format('woff');
-            font-weight: bold;
-            font-style: italic;
             font-display: swap;
         }
         
@@ -138,19 +77,6 @@ function GlobalTags() {
         
         @font-face {
             font-family: 'Poppins';
-            src: url(${
-            asset("/fonts/Poppins-ExtraLightItalic.woff2")
-          } format('woff2'),
-                url(${
-            asset("/fonts/Poppins-ExtraLightItalic.woff")
-          } format('woff');
-            font-weight: 200;
-            font-style: italic;
-            font-display: swap;
-        }
-        
-        @font-face {
-            font-family: 'Poppins';
             src: url(${asset("/fonts/Poppins-Medium.woff2")}) format('woff2'),
                 url(${asset("/fonts/Poppins-Medium.woff")}) format('woff');
             font-weight: 500;
@@ -160,30 +86,10 @@ function GlobalTags() {
         
         @font-face {
             font-family: 'Poppins';
-            src: url(${asset("/fonts/Poppins-Italic.woff2")}) format('woff2'),
-                url(${asset("/fonts/Poppins-Italic.woff")}) format('woff');
-            font-weight: normal;
-            font-style: italic;
-            font-display: swap;
-        }
-        
-        @font-face {
-            font-family: 'Poppins';
             src: url(${asset("/fonts/Poppins-Light.woff2")}) format('woff2'),
                 url(${asset("/fonts/Poppins-Light.woff")}) format('woff');
             font-weight: 300;
             font-style: normal;
-            font-display: swap;
-        }
-        
-        @font-face {
-            font-family: 'Poppins';
-            src: url(${
-            asset("/fonts/Poppins-LightItalic.woff2")
-          } format('woff2'),
-                url(${asset("/fonts/Poppins-LightItalic.woff")}) format('woff');
-            font-weight: 300;
-            font-style: italic;
             font-display: swap;
         }
         
@@ -215,19 +121,6 @@ function GlobalTags() {
             font-style: normal;
             font-display: swap;
         }
-        
-        @font-face {
-            font-family: 'Poppins';
-            src: url(${
-            asset("/fonts/Poppins-ThinItalic.woff2")
-          } format('woff2'),
-                url(${asset("/fonts/Poppins-ThinItalic.woff")}) format('woff');
-            font-weight: 100;
-            font-style: italic;
-            font-display: swap;
-        }
-        
-        
       `,
         }}
       />
