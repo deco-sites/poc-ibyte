@@ -6,7 +6,7 @@ import type { Props as SearchbarProps } from "$store/components/search/Searchbar
 import HeaderSearchMenu from "$store/islands/HeaderSearchMenu.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import NavItem from "./NavItem.tsx";
-import Container from '$store/components/ui/Container.tsx';
+import Container from "$store/components/ui/Container.tsx";
 
 function Navbar({ items, searchbar }: {
   items: INavItem[];

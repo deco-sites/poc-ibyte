@@ -31,7 +31,7 @@ function Gallery({ page }: { page: ProductListingPage }) {
         )
         : null}
 
-      <div class="relative grid grid-cols-1 sm:grid-cols-4 gap-3 sm:gap-10 items-center">
+      <div class="relative grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3 lg:sm:grid-cols-6 sm:gap-3 items-center">
         {page.products?.map((product, index) => (
           <div class="w-full list-none">
             <ProductCard variant="line" product={product} preload={index < 4} />

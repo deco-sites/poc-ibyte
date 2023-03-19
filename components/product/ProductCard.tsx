@@ -50,27 +50,28 @@ function ProductCard({ product, preload, variant }: Props) {
     offers,
   } = product;
   const [front, back] = images ?? [];
-  const { listPrice, price, seller, installments } = useOffer(offers);
+  const { listPrice, price, installments } = useOffer(offers);
 
   return (
     <div
       id={`product-card-${productID}`}
-      class={`w-full group ${
-        variant === "line" ? "flex bg-white rounded shadow p-2" : ""
-      }`}
+      class={`w-full group`}
     >
       <a
         href={url}
         aria-label="product link"
+        class={`${
+          variant === "line" ? "flex bg-white rounded shadow p-2 md:block" : ""
+        }`}
       >
         <div
-          class={`relative ${variant !== "line" ? "w-full" : "mr-3 w-[100px]"}`}
+          class={`relative ${variant !== "line" ? "w-full" : "mr-3 w-[100px] md:w-full"}`}
         >
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={88}
-            height={88}
+            width={130}
+            height={130}
             class="rounded w-full group-hover:hidden"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
@@ -79,8 +80,8 @@ function ProductCard({ product, preload, variant }: Props) {
           <Image
             src={back?.url ?? front.url!}
             alt={back?.alternateName ?? front.alternateName}
-            width={88}
-            height={88}
+            width={130}
+            height={130}
             class="rounded w-full hidden group-hover:block"
             sizes="(max-width: 640px) 50vw, 20vw"
           />
