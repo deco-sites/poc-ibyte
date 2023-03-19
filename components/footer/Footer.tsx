@@ -128,7 +128,7 @@ function Footer(
         </Container>
       </div>
 
-      <Container class="md:(w-full flex justify-start gap-[10rem] mb-8)">
+      <Container class="md:(w-full flex justify-start gap-[10rem] mb-8 mx-auto) mx-0 px-4">
         {specialistPhone
           ? (
             <div class="mb-2 md:self-center whitespace-nowrap">
