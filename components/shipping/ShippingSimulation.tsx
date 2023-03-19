@@ -6,7 +6,7 @@ import { useSignal } from "@preact/signals";
 import { ClientConfigVTEX } from "deco-sites/std/functions/vtexConfig.ts";
 import { useEffect } from "preact/compat";
 import { useCallback } from "preact/hooks";
-import { SKU } from "../../../std/commerce/vtex/types.ts";
+import { SKU } from "deco-sites/std/commerce/vtex/types.ts";
 import SimulationContent from "./SimulationContent.tsx";
 
 export interface Props {
