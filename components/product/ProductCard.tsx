@@ -100,13 +100,13 @@ function ProductCard({ product, preload, variant }: Props) {
 
         <div class={`${variant !== "line" ? "py-2" : "py-0 w-full"}`}>
           <Text
-            class="h-12 text-xs text-gray-800 line-clamp-3 md:text-sm"
+            class="h-12 text-xs text-gray-800 line-clamp-3 md:(text-sm h-[4rem])"
             variant="caption"
             as="p"
           >
             {name}
           </Text>
-          <div class="min-h-[44px] flex flex-col justify-end">
+          <div class="min-h-[44px] flex flex-col justify-end mt-1">
             {listPrice !== price
               ? (
                 <Text

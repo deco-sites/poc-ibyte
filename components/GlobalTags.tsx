@@ -37,6 +37,12 @@ function GlobalTags() {
       <style
         dangerouslySetInnerHTML={{
           __html: `
+          @media (min-width: 768px){
+            body {
+              background-color: #f3f4f6
+            }
+          }
+          
           @font-face {
             font-family: 'Poppins';
             src: url(${asset("/fonts/Poppins-Black.woff2")}) format('woff2'),
