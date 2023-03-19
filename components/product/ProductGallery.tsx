@@ -19,12 +19,22 @@ function NotFound() {
 }
 
 function Gallery({ page }: { page: ProductListingPage }) {
+  const pageName =
+    page.breadcrumb.itemListElement[page.breadcrumb.itemListElement.length - 1];
   return (
-    <Container class="px-4 sm:py-10">
-      <div class="relative grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-10 items-center">
+    <Container class="px-4 sm:py-10 bg-gray-100">
+      {pageName
+        ? (
+          <h1 class="text-heading-2 font-heading-2 text-center mb-6">
+            {pageName.name}
+          </h1>
+        )
+        : null}
+
+      <div class="relative grid grid-cols-1 sm:grid-cols-4 gap-3 sm:gap-10 items-center">
         {page.products?.map((product, index) => (
           <div class="w-full list-none">
-            <ProductCard product={product} preload={index < 4} />
+            <ProductCard variant="line" product={product} preload={index < 4} />
           </div>
         ))}
       </div>

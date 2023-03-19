@@ -20,21 +20,18 @@ function NotFound() {
 function Controls({ page }: { page: ProductListingPage }) {
   const open = useSignal(false);
   const filters = page?.filters;
-  const breadcrumb = page?.breadcrumb;
 
   return (
-    <Container class="flex flex-col justify-between mb-4 md:mb-0 p-4 md:p-0 sm:gap-4 sm:flex-row sm:h-[53px] md:border-b-1">
-      <div class="flex flex-row items-center sm:p-0 mb-2">
-        <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
-      </div>
-      <div class="flex flex-row sm:gap-4 items-center justify-between border-b-1 border-default md:border-none">
+    <Container class="flex bg-gray-100 flex-col justify-between pb-4 md:mb-0 px-4 pb-3 pt-2 md:p-0 sm:gap-4 sm:flex-row sm:h-[53px] md:border-b-1">
+      <div class="flex flex-row sm:gap-4 items-center justify-between">
         <Button
           variant="tertiary"
+          class="bg-transparent"
           onClick={() => {
             open.value = true;
           }}
         >
-          Filtrar
+          Filtros
           <Icon id="FilterList" width={16} height={16} />
         </Button>
         <Sort />
