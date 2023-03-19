@@ -7,12 +7,18 @@ import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
-import ProductDescription from "./ProductDescription.tsx";
+import type { ClientConfigVTEX } from "deco-sites/std/functions/vtexConfig.ts";
+import ShippingSimulation from "../shipping/ShippingSimulation.tsx";
 import ImageGallery from "./ImageGallery.tsx";
+import ProductDescription from "./ProductDescription.tsx";
 import ProductSelector from "./ProductVariantSelector.tsx";
 
 export interface Props {
   page: LoaderReturnType<ProductDetailsPage | null>;
+  /**
+   * @description vtex config used for simulation
+   */
+  configVTEX?: LoaderReturnType<ClientConfigVTEX>;
 }
 
 function NotFound() {
@@ -28,7 +34,12 @@ function NotFound() {
   );
 }
 
-function Details({ page }: { page: ProductDetailsPage }) {
+function Details(
+  { page, configVTEX }: {
+    page: ProductDetailsPage;
+    configVTEX?: ClientConfigVTEX;
+  },
+) {
   const {
     breadcrumbList,
     product,
@@ -109,6 +120,20 @@ function Details({ page }: { page: ProductDetailsPage }) {
           <div class="mt-4 sm:mt-6">
             <ProductSelector product={product} />
           </div>
+          {configVTEX
+            ? (
+              <div>
+                <ShippingSimulation
+                  configVTEX={configVTEX}
+                  item={{
+                    id: Number(product.sku),
+                    quantity: 1,
+                    seller: seller ?? "1",
+                  }}
+                />
+              </div>
+            )
+            : null}
           {/* Add to Cart and Favorites button */}
           <div class="mt-4 sm:mt-10 flex flex-col gap-2">
             {seller && (
@@ -134,9 +159,9 @@ function Details({ page }: { page: ProductDetailsPage }) {
   );
 }
 
-function ProductDetails({ page }: Props) {
+function ProductDetails({ page, configVTEX }: Props) {
   if (page) {
-    return <Details page={page} />;
+    return <Details page={page} configVTEX={configVTEX} />;
   }
 
   return <NotFound />;
