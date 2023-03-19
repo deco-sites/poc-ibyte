@@ -24,7 +24,7 @@ function Gallery({ page }: { page: ProductListingPage }) {
       <div class="relative grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-10 items-center">
         {page.products?.map((product, index) => (
           <div class="w-full list-none">
-            <ProductCard product={product} preload={index > 4} />
+            <ProductCard product={product} preload={index < 4} />
           </div>
         ))}
       </div>
