@@ -22,8 +22,8 @@ const ImageGallery = ({ images }: Props) => {
         sizes="(max-width: 640px) 100vw, 30vw"
         src={selectedImg.value.url!}
         alt={selectedImg.value.alternateName}
-        width={0}
-        height={0}
+        width={320}
+        height={320}
         preload
         loading="eager"
       />
