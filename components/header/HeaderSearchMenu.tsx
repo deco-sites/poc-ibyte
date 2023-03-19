@@ -8,16 +8,17 @@ const Searchbar = lazy(() => import("$store/components/search/Searchbar.tsx"));
 
 interface Props {
   searchbar: SearchbarProps;
+  type?: "desktop" | "mobile"
 }
 
-export default function HeaderSearchMenu({ searchbar }: Props) {
+export default function HeaderSearchMenu({ searchbar, type = "mobile" }: Props) {
   return (
     <div
       class={"block left-0 w-screen z-50"}
     >
       {IS_BROWSER && (
         <Suspense fallback={<Loading />}>
-          <Searchbar {...searchbar} variant="desktop" />
+          <Searchbar {...searchbar} variant={type} />
         </Suspense>
       )}
     </div>

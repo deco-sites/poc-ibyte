@@ -65,9 +65,8 @@ function Searchbar({
   query,
   suggestions: _suggestions,
   configVTEX,
+  variant
 }: Props) {
-  const form = useId();
-  const searchbar = useId();
   const searches = _suggestions?.searches;
   const searchInputRef = useRef<HTMLInputElement>(null);
   const { setSearch, suggestions } = useAutocomplete({
@@ -85,10 +84,10 @@ function Searchbar({
   const hasSuggestions = !!suggestions.value;
 
   return (
-    <div class="flex flex-col pb-2 px-2 md:(py-6 px-20)">
-      <div class="flex gap-4 bg-white rounded-full overflow-hidden">
+    <div class="flex flex-col pb-2 md:(pb-0) px-2">
+      <div class="flex gap-4 bg-white rounded-full overflow-hidden md:(py-2)">
         <form
-          id={`${form}-searchbar`}
+          id={`${variant}-searchbar`}
           action={action}
           class="flex-grow flex gap-3 px-1"
         >
@@ -108,7 +107,7 @@ function Searchbar({
           </Button>
           <input
             ref={searchInputRef}
-            id={`${searchbar}-search-input`}
+            id={`${variant}-search-input`}
             class="flex-grow text-sm outline-none placeholder-shown:sibling:hidden"
             name={name}
             defaultValue={query}

@@ -6,7 +6,6 @@ import HeaderSearchMenu from "$store/islands/HeaderSearchMenu.tsx";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 import type { Image } from "deco-sites/std/components/types.ts";
 import type { ClientConfigVTEX } from "deco-sites/std/functions/vtexConfig.ts";
-import { lazy } from "preact/compat";
 import Navbar from "./Navbar.tsx";
 
 export interface NavItem {
@@ -67,7 +66,9 @@ function Header(
       <div class="h-[96px]" />
       <header class={"bg-header fixed w-full z-50 shadow top-0 left-0"}>
         <Navbar items={navItems} searchbar={searchbar} />
-        <HeaderSearchMenu searchbar={searchbar} />
+        <div class="md:hidden">
+          <HeaderSearchMenu searchbar={searchbar} />
+        </div>
         <Modals
           menu={{ items: navItems }}
           searchbar={searchbar}
