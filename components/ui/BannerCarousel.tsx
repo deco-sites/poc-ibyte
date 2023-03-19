@@ -1,12 +1,13 @@
-import Text from "$store/components/ui/Text.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
+import Container from "$store/components/ui/Container.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
+import Text from "$store/components/ui/Text.tsx";
 import SliderControllerJS from "$store/islands/SliderJS.tsx";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import { useId } from "preact/hooks";
 import { animation, keyframes, tw } from "twind/css";
-import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export interface Banner {
   /** @description desktop otimized image */
@@ -59,7 +60,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   } = image;
 
   return (
-    <div class="relative h-auto sm:h-[600px] min-w-[100vw] overflow-y-hidden">
+    <div class="relative h-auto sm:h-[300px] min-w-[100vw] overflow-y-hidden">
       <a href={action?.href ?? "#"} aria-label={action?.label}>
         <Picture class="w-full" preload={lcp}>
           <Source
@@ -73,8 +74,8 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
             media="(min-width: 768px)"
             fetchPriority={lcp ? "high" : "auto"}
             src={desktop}
-            width={1440}
-            height={600}
+            width={1500}
+            height={300}
           />
           <img
             class="object-cover w-full sm:h-full"
@@ -116,7 +117,7 @@ function Dots({ images, interval = 0 }: Pick<Props, "images" | "interval">) {
         }}
       >
       </style>
-      <ol class="flex items-center justify-center col-span-full gap-4 z-10 row-start-6">
+      <ol class="flex items-center justify-center col-span-full gap-4 z-10 row-start-6 ">
         {images?.map((_, index) => (
           <li class="h-full">
             <button
@@ -154,30 +155,30 @@ function Dots({ images, interval = 0 }: Pick<Props, "images" | "interval">) {
 function Controls() {
   return (
     <>
-      <div class="flex items-center justify-center z-10 col-start-1 row-start-2">
+      <div class="flex items-center justify-center z-10 col-start-1 row-start-3">
         <Button
-          class="h-12 w-12"
-          variant="icon"
+          class="h-12 w-12 bg-white rounded-full border-1 border-gray-300"
+          variant="custom"
           data-slide="prev"
           aria-label="Previous item"
         >
           <Icon
-            class="text-default-inverse"
+            class="text-default-inverse md:text-default"
             size={20}
             id="ChevronLeft"
             strokeWidth={3}
           />
         </Button>
       </div>
-      <div class="flex items-center justify-center z-10 col-start-3 row-start-2">
+      <div class="flex items-center justify-center z-10 col-start-3 row-start-3">
         <Button
-          class="h-12 w-12"
-          variant="icon"
+          class="h-12 w-12 bg-white rounded-full border-1 border-gray-300"
+          variant="custom"
           data-slide="next"
           aria-label="Next item"
         >
           <Icon
-            class="text-default-inverse"
+            class="text-default-inverse md:text-default"
             size={20}
             id="ChevronRight"
             strokeWidth={3}
@@ -194,22 +195,24 @@ function BannerCarousel(
   const id = useId();
   const customId = `${id}-carousel`;
   return (
-    <div
-      id={customId}
-      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]"
-    >
-      <Slider class="col-span-full row-span-full scrollbar-none gap-6">
-        {images?.map((image, index) => (
-          <BannerItem image={image} lcp={index === 0 && preload} />
-        ))}
-      </Slider>
-      {buttons ? <Controls /> : null}
-      {dots ? <Dots images={images} interval={interval} /> : null}
-      <SliderControllerJS
-        rootId={customId}
-        interval={interval && interval * 1e3}
-      />
-    </div>
+    <Container>
+      <div
+        id={customId}
+        class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[48px_1fr_48px_1fr_48px]"
+      >
+        <Slider class="col-span-full row-span-full scrollbar-none gap-6">
+          {images?.map((image, index) => (
+            <BannerItem image={image} lcp={index === 0 && preload} />
+          ))}
+        </Slider>
+        {buttons ? <Controls /> : null}
+        {dots ? <Dots images={images} interval={interval} /> : null}
+        <SliderControllerJS
+          rootId={customId}
+          interval={interval && interval * 1e3}
+        />
+      </div>
+    </Container>
   );
 }
 
