@@ -157,7 +157,7 @@ function Controls() {
     <>
       <div class="flex items-center justify-center z-10 col-start-1 row-start-3">
         <Button
-          class="h-12 w-12 bg-white rounded-full border-1 border-gray-300"
+          class="h-12 w-12 md:(bg-white rounded-full border-1 border-gray-300)"
           variant="custom"
           data-slide="prev"
           aria-label="Previous item"
@@ -172,7 +172,7 @@ function Controls() {
       </div>
       <div class="flex items-center justify-center z-10 col-start-3 row-start-3">
         <Button
-          class="h-12 w-12 bg-white rounded-full border-1 border-gray-300"
+          class="h-12 w-12 md:(bg-white rounded-full border-1 border-gray-300)"
           variant="custom"
           data-slide="next"
           aria-label="Next item"

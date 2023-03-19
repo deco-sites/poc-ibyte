@@ -31,7 +31,7 @@ function Alert({ alerts = [], interval = 5, auto }: Props) {
       <Icon
         id={icon}
         strokeWidth={1.5}
-        class="text-[#e1110f] w-[27px] h-[27px] md:min-w-[45px] md:h-[45px] flex-grow-1"
+        class="text-[#e1110f] w-[27px] h-[27px] md:min-w-[45px] md:h-[45px] md:flex-grow-1"
       />
       {text}
     </Text>
