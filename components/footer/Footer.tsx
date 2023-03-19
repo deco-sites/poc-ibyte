@@ -7,7 +7,11 @@ import type { ComponentChildren } from "preact";
 import SectionItem, { isIcon } from "./SectionItem.tsx";
 import type { Image } from "deco-sites/std/components/types.ts";
 
-export type IconItem = { icon: AvailableIcons; href?: string, accessibleName: string };
+export type IconItem = {
+  icon: AvailableIcons;
+  href?: string;
+  accessibleName: string;
+};
 export type ImageItem = {
   path: Image;
   alt: string;
