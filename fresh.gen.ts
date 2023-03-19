@@ -16,7 +16,8 @@ import * as $$2 from "./islands/HeaderModals.tsx";
 import * as $$3 from "./islands/HeaderSearchMenu.tsx";
 import * as $$4 from "./islands/ImageGallery.tsx";
 import * as $$5 from "./islands/SearchControls.tsx";
-import * as $$6 from "./islands/SliderJS.tsx";
+import * as $$6 from "./islands/ShippingSimulation.tsx";
+import * as $$7 from "./islands/SliderJS.tsx";
 import * as $$$0 from "./sections/Alert.tsx";
 import * as $$$1 from "./sections/BannerGrid.tsx";
 import * as $$$2 from "./sections/Carousel.tsx";
@@ -71,7 +72,8 @@ const manifest: DecoManifest = {
     "./islands/HeaderSearchMenu.tsx": $$3,
     "./islands/ImageGallery.tsx": $$4,
     "./islands/SearchControls.tsx": $$5,
-    "./islands/SliderJS.tsx": $$6,
+    "./islands/ShippingSimulation.tsx": $$6,
+    "./islands/SliderJS.tsx": $$7,
   },
   sections: {
     "./sections/Alert.tsx": $$$0,
@@ -1852,6 +1854,13 @@ const manifest: DecoManifest = {
             "type": "string",
             "title": "Page",
           },
+          "configVTEX": {
+            "$id": "4a94f4ff0e8e4441f26651aaed22f0df82f38c93",
+            "format": "live-function",
+            "type": "string",
+            "title": "Config V T E X",
+            "description": "vtex config used for simulation",
+          },
         },
         "required": [
           "page",
@@ -2197,7 +2206,7 @@ const manifest: DecoManifest = {
         "type": "object",
         "properties": {
           "page": {
-            "$id": "05ecb684cf4ee00e98171fdc45227df637e4804e",
+            "$id": "9ba29fcac079080c6f7cf16f40f91cf15a25d53f",
             "format": "live-function",
             "type": "string",
             "title": "Page",
