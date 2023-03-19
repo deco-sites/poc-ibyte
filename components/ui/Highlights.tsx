@@ -35,8 +35,8 @@ function Highlights({ highlights = [], title }: Props) {
               class="rounded"
               src={src}
               alt={alt}
-              width={190}
-              height={265}
+              width={180}
+              height={206}
             />
             {label ? <Text variant="body">{label}</Text> : null}
           </a>
