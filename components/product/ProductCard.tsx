@@ -1,11 +1,10 @@
-import Image from "deco-sites/std/components/Image.tsx";
-import Text from "$store/components/ui/Text.tsx";
 import Avatar from "$store/components/ui/Avatar.tsx";
-import Button from "$store/components/ui/Button.tsx";
-import { useOffer } from "$store/sdk/useOffer.ts";
+import Text from "$store/components/ui/Text.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
+import { useOffer } from "$store/sdk/useOffer.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
+import Image from "deco-sites/std/components/Image.tsx";
 
 /**
  * A simple, inplace sku selector to be displayed once the user hovers the product card
