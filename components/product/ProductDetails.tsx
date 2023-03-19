@@ -55,19 +55,13 @@ function Details(
   const { price, listPrice, seller, installments } = useOffer(offers);
 
   return (
-    <Container class="py-0 sm:py-10">
-      <div class="flex flex-col gap-4 sm:flex-row sm:gap-10">
+    <Container class="py-0 sm:py-10 block">
+      <div class="flex flex-col gap-4 sm:flex-row sm:gap-10 bg-white rounded p-4">
         {/* Image Gallery */}
         {images && images.length > 0 ? <ImageGallery images={images} /> : null}
 
         {/* Product Info */}
         <div class="flex-auto px-4 sm:px-0">
-          {/* Breadcrumb */}
-          <div class="sm:block hidden">
-            <Breadcrumb
-              itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
-            />
-          </div>
           {/* Code and name */}
           <div class="mt-4 sm:mt-8">
             <Text variant="caption" class="text-gray-600">
@@ -153,8 +147,8 @@ function Details(
           </div>
         </div>
         {/* Description card */}
-        {description ? <ProductDescription description={description} /> : null}
       </div>
+      {description ? <ProductDescription description={description} /> : null}
     </Container>
   );
 }

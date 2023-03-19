@@ -6,6 +6,7 @@ import type { Props as SearchbarProps } from "$store/components/search/Searchbar
 import HeaderSearchMenu from "$store/islands/HeaderSearchMenu.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import NavItem from "./NavItem.tsx";
+import Container from '$store/components/ui/Container.tsx';
 
 function Navbar({ items, searchbar }: {
   items: INavItem[];
@@ -40,83 +41,85 @@ function Navbar({ items, searchbar }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:block border-b-1 border-default w-full px-6">
-        <div class="flex justify-between">
-          <ul class="flex items-center gap-4">
-            <li>
-              <a
-                class="text-white text-xs flex items-center gap-1 py-2"
-                href="https://www.ibyte.com.br/nossas-lojas"
-              >
-                <Icon id="MapPin" width={14} height={14} strokeWidth={1.5} />
-                <span>Nossas Lojas</span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="text-white text-xs flex items-center gap-1 py-2"
-                href="tel:8540205000"
-              >
-                <span>Atendimento:</span>
-                <Icon id="Phone" width={14} height={14} strokeWidth={1.5} />
-                <span>(85) 4020-5000</span>
-              </a>
-            </li>
-          </ul>
-          <ul class="flex items-center gap-6">
-            <li>
-              <a
-                class="text-white text-xs flex items-center gap-1 py-2"
-                href="https://bit.ly/faleconsultor-ibyte"
-                aria-label="WhatsApp"
-              >
-                <Icon id="WhatsApp" width={14} height={14} />
-                <span>Compre pelo Whatsapp</span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="text-white text-xs flex items-center gap-1 py-2"
-                href="/account/#/orders"
-              >
-                <Icon id="Box" width={14} height={14} />
-                <span>Meus Pedidos</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="flex flex-row justify-between items-center gap-8 mt-2">
-          <a
-            href="/"
-            class="flex-grow inline-flex items-center text-white"
-            aria-label="ibyte home"
-          >
-            <Icon id="Logo" width={107} height={45} />
-          </a>
-          <HeaderSearchMenu searchbar={searchbar} type="desktop" />
-          <div class="flex items-center justify-end gap-2 flex-grow-1">
+      <Container>
+        <div class="hidden md:block border-b-1 border-default w-full px-6">
+          <div class="flex justify-between">
+            <ul class="flex items-center gap-4">
+              <li>
+                <a
+                  class="text-white text-xs flex items-center gap-1 py-2"
+                  href="https://www.ibyte.com.br/nossas-lojas"
+                >
+                  <Icon id="MapPin" width={14} height={14} strokeWidth={1.5} />
+                  <span>Nossas Lojas</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-white text-xs flex items-center gap-1 py-2"
+                  href="tel:8540205000"
+                >
+                  <span>Atendimento:</span>
+                  <Icon id="Phone" width={14} height={14} strokeWidth={1.5} />
+                  <span>(85) 4020-5000</span>
+                </a>
+              </li>
+            </ul>
+            <ul class="flex items-center gap-6">
+              <li>
+                <a
+                  class="text-white text-xs flex items-center gap-1 py-2"
+                  href="https://bit.ly/faleconsultor-ibyte"
+                  aria-label="WhatsApp"
+                >
+                  <Icon id="WhatsApp" width={14} height={14} />
+                  <span>Compre pelo Whatsapp</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-white text-xs flex items-center gap-1 py-2"
+                  href="/account/#/orders"
+                >
+                  <Icon id="Box" width={14} height={14} />
+                  <span>Meus Pedidos</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-row justify-between items-center gap-8 mt-2">
             <a
-              href="/account"
-              class="flex items-center gap-3 text-white justify-between"
+              href="/"
+              class="flex-grow inline-flex items-center text-white"
+              aria-label="ibyte home"
             >
-              <Icon id="User" width={30} height={30} />
-              <div class="text-xs">
-                <p class="whitespace-nowrap">
-                  Olá, faça o login
-                </p>
-                <p class="whitespace-nowrap">
-                  ou, cadastre-se!
-                </p>
-              </div>
+              <Icon id="Logo" width={107} height={45} />
             </a>
-            <HeaderButton variant="wishlist" />
-            <HeaderButton variant="cart" />
+            <HeaderSearchMenu searchbar={searchbar} type="desktop" />
+            <div class="flex items-center justify-end gap-2 flex-grow-1">
+              <a
+                href="/account"
+                class="flex items-center gap-3 text-white justify-between"
+              >
+                <Icon id="User" width={30} height={30} />
+                <div class="text-xs">
+                  <p class="whitespace-nowrap">
+                    Olá, faça o login
+                  </p>
+                  <p class="whitespace-nowrap">
+                    ou, cadastre-se!
+                  </p>
+                </div>
+              </a>
+              <HeaderButton variant="wishlist" />
+              <HeaderButton variant="cart" />
+            </div>
+          </div>
+          <div class="flex-auto flex items-center mt-2">
+            {items.map((item) => <NavItem item={item} />)}
           </div>
         </div>
-        <div class="flex-auto flex items-center mt-2">
-          {items.map((item) => <NavItem item={item} />)}
-        </div>
-      </div>
+      </Container>
     </>
   );
 }

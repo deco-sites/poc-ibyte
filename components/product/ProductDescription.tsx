@@ -6,7 +6,7 @@ export interface Props {
 
 function ProductDescription({ description }: Props) {
   return (
-    <div class="sm:mt-6 border-t-8 border-gray-100 pt-6">
+    <div class="sm:mt-6 border-t-8 border-gray-100 md:(bg-white rounded) p-6">
       <SectionTitle title="Detalhes" />
       <div
         class="mt-6 px-4 font-body text-body overflow-hidden"

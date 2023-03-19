@@ -84,20 +84,7 @@ function ProductCard({ product, preload, variant }: Props) {
             class="rounded w-full hidden group-hover:block"
             sizes="(max-width: 640px) 50vw, 20vw"
           />
-          {seller && (
-            <div
-              class="absolute bottom-0 hidden sm:group-hover:flex flex-col gap-2 w-full p-2 bg-opacity-10"
-              style={{
-                backgroundColor: "rgba(255, 255, 255, 0.2)",
-                backdropFilter: "blur(2px)",
-              }}
-            >
-              <Sizes {...product} />
-              <Button as="a" href={product.url}>Visualizar Produto</Button>
-            </div>
-          )}
         </div>
-
         <div class={`${variant !== "line" ? "py-2" : "py-0 w-full"}`}>
           <Text
             class="h-12 text-xs text-gray-800 line-clamp-3 md:(text-sm h-[4rem])"
