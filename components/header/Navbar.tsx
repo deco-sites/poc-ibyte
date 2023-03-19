@@ -113,7 +113,7 @@ function Navbar({ items, searchbar }: {
             <HeaderButton variant="cart" />
           </div>
         </div>
-        <div class="flex-auto flex justify-center">
+        <div class="flex-auto flex items-center mt-2">
           {items.map((item) => <NavItem item={item} />)}
         </div>
       </div>

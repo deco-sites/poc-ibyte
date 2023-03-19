@@ -63,7 +63,7 @@ function Header(
   const searchbar = { ..._searchbar, products, suggestions, configVTEX };
   return (
     <>
-      <div class="h-[96px]" />
+      <div class="h-[96px] md:h-[143px]" />
       <header class={"bg-header fixed w-full z-50 shadow top-0 left-0"}>
         <Navbar items={navItems} searchbar={searchbar} />
         <div class="md:hidden">

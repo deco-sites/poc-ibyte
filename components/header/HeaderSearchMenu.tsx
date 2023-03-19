@@ -8,10 +8,12 @@ const Searchbar = lazy(() => import("$store/components/search/Searchbar.tsx"));
 
 interface Props {
   searchbar: SearchbarProps;
-  type?: "desktop" | "mobile"
+  type?: "desktop" | "mobile";
 }
 
-export default function HeaderSearchMenu({ searchbar, type = "mobile" }: Props) {
+export default function HeaderSearchMenu(
+  { searchbar, type = "mobile" }: Props,
+) {
   return (
     <div
       class={"block left-0 w-screen z-50"}

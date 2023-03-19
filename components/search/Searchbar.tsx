@@ -65,7 +65,7 @@ function Searchbar({
   query,
   suggestions: _suggestions,
   configVTEX,
-  variant
+  variant,
 }: Props) {
   const searches = _suggestions?.searches;
   const searchInputRef = useRef<HTMLInputElement>(null);
