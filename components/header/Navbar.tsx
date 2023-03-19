@@ -31,6 +31,7 @@ function Navbar({ items, searchbar }: {
           <a
             href="https://bit.ly/faleconsultor-ibyte"
             class="flex items-center px-2"
+            aria-label="WhatsApp"
           >
             <Icon id="WhatsApp" width={28} height={28} />
           </a>
@@ -51,7 +52,7 @@ function Navbar({ items, searchbar }: {
         </div>
         <div class="flex-none w-44 flex items-center justify-end gap-2">
           <HeaderButton variant="search" />
-          <HeaderSearchMenu searchbar={searchbar} />
+          {/* <HeaderSearchMenu searchbar={searchbar} /> */}
           <Button
             as="a"
             variant="icon"

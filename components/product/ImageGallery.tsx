@@ -22,8 +22,8 @@ const ImageGallery = ({ images }: Props) => {
         sizes="(max-width: 640px) 100vw, 30vw"
         src={selectedImg.value.url!}
         alt={selectedImg.value.alternateName}
-        width={0}
-        height={0}
+        width={320}
+        height={320}
         preload
         loading="eager"
       />
@@ -37,6 +37,7 @@ const ImageGallery = ({ images }: Props) => {
                 selectedImg.value.url === img.url ? "border-emphasis-light" : ""
               }`}
               onClick={() => handleChangeImg(img)}
+              aria-label={`Trocar para a imagem ${index}`}
             >
               <Image
                 class="snap-center"

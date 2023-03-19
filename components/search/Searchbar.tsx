@@ -16,6 +16,7 @@ import useAutocomplete from "deco-sites/std/commerce/vtex/hooks/useAutocomplete.
 import type { ClientConfigVTEX } from "deco-sites/std/functions/vtexConfig.ts";
 import { useEffect, useRef } from "preact/compat";
 import SearchTermList from "./SearchTermList.tsx";
+import { useId } from "preact/hooks";
 
 // Editable props
 export interface EditableProps {
@@ -65,6 +66,8 @@ function Searchbar({
   suggestions: _suggestions,
   configVTEX,
 }: Props) {
+  const form = useId();
+  const searchbar = useId();
   const searches = _suggestions?.searches;
   const searchInputRef = useRef<HTMLInputElement>(null);
   const { setSearch, suggestions } = useAutocomplete({
@@ -85,7 +88,7 @@ function Searchbar({
     <div class="flex flex-col pb-2 px-2 md:(py-6 px-20)">
       <div class="flex gap-4 bg-white rounded-full overflow-hidden">
         <form
-          id="searchbar"
+          id={`${form}-searchbar`}
           action={action}
           class="flex-grow flex gap-3 px-1"
         >
@@ -105,7 +108,7 @@ function Searchbar({
           </Button>
           <input
             ref={searchInputRef}
-            id="search-input"
+            id={`${searchbar}-search-input`}
             class="flex-grow text-sm outline-none placeholder-shown:sibling:hidden"
             name={name}
             defaultValue={query}
@@ -115,8 +118,6 @@ function Searchbar({
               setSearch(value);
             }}
             placeholder={placeholder}
-            role="combobox"
-            aria-controls="search-suggestion"
             autocomplete="off"
           />
           <button

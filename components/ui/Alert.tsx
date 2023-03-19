@@ -28,7 +28,7 @@ function Alert({ alerts = [], interval = 5 }: Props) {
           <Text
             class="flex justify-center gap-2 text-default items-center w-screen h-[38px]"
             variant="caption"
-            tone="default-inverse"
+            tone="default"
           >
             <Icon
               id={icon}

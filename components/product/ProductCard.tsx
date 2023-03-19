@@ -38,9 +38,10 @@ interface Props {
   product: Product;
   /** Preload card image */
   preload?: boolean;
+  variant?: "line";
 }
 
-function ProductCard({ product, preload }: Props) {
+function ProductCard({ product, preload, variant }: Props) {
   const {
     url,
     productID,
@@ -54,15 +55,22 @@ function ProductCard({ product, preload }: Props) {
   return (
     <div
       id={`product-card-${productID}`}
-      class="w-full group"
+      class={`w-full group ${
+        variant === "line" ? "flex bg-white rounded shadow p-2" : ""
+      }`}
     >
-      <a href={url} aria-label="product link">
-        <div class="relative w-full">
+      <a
+        href={url}
+        aria-label="product link"
+      >
+        <div
+          class={`relative ${variant !== "line" ? "w-full" : "mr-3 w-[100px]"}`}
+        >
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={176}
-            height={176}
+            width={88}
+            height={88}
             class="rounded w-full group-hover:hidden"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
@@ -71,8 +79,8 @@ function ProductCard({ product, preload }: Props) {
           <Image
             src={back?.url ?? front.url!}
             alt={back?.alternateName ?? front.alternateName}
-            width={176}
-            height={176}
+            width={88}
+            height={88}
             class="rounded w-full hidden group-hover:block"
             sizes="(max-width: 640px) 50vw, 20vw"
           />
@@ -90,7 +98,7 @@ function ProductCard({ product, preload }: Props) {
           )}
         </div>
 
-        <div class="py-2">
+        <div class={`${variant !== "line" ? "py-2" : "py-0 w-full"}`}>
           <Text
             class="h-12 text-xs text-gray-800 line-clamp-3 md:text-sm"
             variant="caption"

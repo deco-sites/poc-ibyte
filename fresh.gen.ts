@@ -1122,9 +1122,14 @@ const manifest: DecoManifest = {
                             ],
                             "title": "Href",
                           },
+                          "accessibleName": {
+                            "type": "string",
+                            "title": "Accessible Name",
+                          },
                         },
                         "required": [
                           "icon",
+                          "accessibleName",
                         ],
                       },
                       {
@@ -1562,9 +1567,14 @@ const manifest: DecoManifest = {
                             ],
                             "title": "Href",
                           },
+                          "accessibleName": {
+                            "type": "string",
+                            "title": "Accessible Name",
+                          },
                         },
                         "required": [
                           "icon",
+                          "accessibleName",
                         ],
                       },
                       {

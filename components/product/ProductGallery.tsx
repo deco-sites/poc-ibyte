@@ -19,27 +19,53 @@ function NotFound() {
 }
 
 function Gallery({ page }: { page: ProductListingPage }) {
+  const pageName =
+    page.breadcrumb.itemListElement[page.breadcrumb.itemListElement.length - 1];
   return (
-    <Container class="px-4 sm:py-10">
-      <div class="relative grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-10 items-center">
+    <Container class="px-4 sm:py-10 bg-gray-100">
+      {pageName
+        ? (
+          <h1 class="text-heading-2 font-heading-2 text-center mb-6">
+            {pageName.name}
+          </h1>
+        )
+        : null}
+
+      <div class="relative grid grid-cols-1 sm:grid-cols-4 gap-3 sm:gap-10 items-center">
         {page.products?.map((product, index) => (
           <div class="w-full list-none">
-            <ProductCard product={product} preload={index === 0} />
+            <ProductCard variant="line" product={product} preload={index < 4} />
           </div>
         ))}
       </div>
 
       <div class="flex flex-row items-center justify-center gap-2 my-4">
-        <a rel="prev" href={page.pageInfo.previousPage ?? "#"}>
-          <Button disabled={!page.pageInfo.previousPage} variant="icon">
+        <a
+          aria-label="página anterior"
+          rel="prev"
+          href={page.pageInfo.previousPage ?? "#"}
+        >
+          <Button
+            aria-label="página anterior"
+            disabled={!page.pageInfo.previousPage}
+            variant="icon"
+          >
             <Icon id="ChevronLeft" width={20} height={20} strokeWidth={2} />
           </Button>
         </a>
         <Text variant="caption">
           {page.pageInfo.currentPage + 1}
         </Text>
-        <a rel="next" href={page.pageInfo.nextPage ?? "#"}>
-          <Button disabled={!page.pageInfo.nextPage} variant="icon">
+        <a
+          aria-label="próxima página"
+          rel="next"
+          href={page.pageInfo.nextPage ?? "#"}
+        >
+          <Button
+            aria-label="próxima página"
+            disabled={!page.pageInfo.nextPage}
+            variant="icon"
+          >
             <Icon id="ChevronRight" width={20} height={20} strokeWidth={2} />
           </Button>
         </a>

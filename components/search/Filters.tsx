@@ -1,5 +1,6 @@
 import Text from "$store/components/ui/Text.tsx";
 import Avatar from "$store/components/ui/Avatar.tsx";
+import SectionTitle from "$store/components/ui/SectionTitle.tsx";
 import type {
   Filter,
   FilterToggle,
@@ -19,7 +20,7 @@ function FilterValues({ key, values }: FilterToggle) {
     : "flex-col";
 
   return (
-    <ul class={`flex flex-wrap gap-2 ${flexDirection}`}>
+    <ul class={`flex flex-wrap gap-2 ${flexDirection} pl-4`}>
       {values.map(({ label, value, url, selected, quantity }) => {
         if (key === "cor") {
           return (
@@ -62,12 +63,12 @@ function FilterValues({ key, values }: FilterToggle) {
 
 export default function Filters({ filters }: Props) {
   return (
-    <ul class="flex flex-col gap-6 p-4">
+    <ul class="flex flex-col">
       {filters
         .filter(isToggle)
         .map((filter) => (
-          <li class="flex flex-col gap-4">
-            <Text variant="body">{filter.label}</Text>
+          <li class="flex flex-col gap-4 py-3 not-first-child:border-t-8 border-[#f9f9f9]">
+            <SectionTitle title={filter.label} />
             <FilterValues {...filter} />
           </li>
         ))}

@@ -7,7 +7,11 @@ import type { ComponentChildren } from "preact";
 import SectionItem, { isIcon } from "./SectionItem.tsx";
 import type { Image } from "deco-sites/std/components/types.ts";
 
-export type IconItem = { icon: AvailableIcons; href?: string };
+export type IconItem = {
+  icon: AvailableIcons;
+  href?: string;
+  accessibleName: string;
+};
 export type ImageItem = {
   path: Image;
   alt: string;
@@ -248,7 +252,7 @@ function Footer(
 
         {disclaimerText
           ? (
-            <Container class="w-full pt-5 mb-2 px-4 text-sm border-t-1 border-gray-200 text-gray-500">
+            <Container class="w-full pt-5 mb-2 px-4 text-sm border-t-1 border-gray-200 text-gray-600">
               {disclaimerText}
             </Container>
           )
