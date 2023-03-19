@@ -9,18 +9,13 @@
  * no JavaScript is shipped to the browser!
  */
 
+import Button from "$store/components/ui/Button.tsx";
+import Icon from "$store/components/ui/Icon.tsx";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
+import useAutocomplete from "deco-sites/std/commerce/vtex/hooks/useAutocomplete.ts";
 import type { ClientConfigVTEX } from "deco-sites/std/functions/vtexConfig.ts";
 import { useEffect, useRef } from "preact/compat";
-
-import Icon from "$store/components/ui/Icon.tsx";
-import Text from "$store/components/ui/Text.tsx";
-import Button from "$store/components/ui/Button.tsx";
-import ProductCard from "$store/components/product/ProductCard.tsx";
-import Slider from "$store/components/ui/Slider.tsx";
-import useAutocomplete from "deco-sites/std/commerce/vtex/hooks/useAutocomplete.ts";
 import SearchTermList from "./SearchTermList.tsx";
-import { useUI } from "$store/sdk/useUI.ts";
 
 // Editable props
 export interface EditableProps {
