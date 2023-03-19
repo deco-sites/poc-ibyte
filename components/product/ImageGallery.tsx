@@ -37,6 +37,7 @@ const ImageGallery = ({ images }: Props) => {
                 selectedImg.value.url === img.url ? "border-emphasis-light" : ""
               }`}
               onClick={() => handleChangeImg(img)}
+              aria-label={`Trocar para a imagem ${index}`}
             >
               <Image
                 class="snap-center"
