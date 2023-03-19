@@ -42,7 +42,7 @@ function Navbar({ items, searchbar }: {
 
       {/* Desktop Version */}
       <Container>
-        <div class="hidden md:block border-b-1 border-default w-full px-6">
+        <div class="hidden md:block w-full px-6">
           <div class="flex justify-between">
             <ul class="flex items-center gap-4">
               <li>
